@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Warung</title>
+    <link rel="stylesheet" href="../../assets/css/main-window.css">
+</head>
+<body>
+    <div id="topbar">Topbar</div>
+
+    <div id="sidebar">
+        <div id="logo">
+            [LOGO]
+        </div>
+        <div id="menu">
+            <div class="menu-item selected" onclick="menuNavigate(0)">
+                <img src="../../assets/icons/icon-beranda.svg" class="menu-img"> 
+                <span class="menu-text">Beranda</span>
+            </div>
+            <div class="menu-item" onclick="menuNavigate(1)">
+                <img src="../../assets/icons/icon-barang.svg" class="menu-img"> 
+                <span class="menu-text">Barang</span>
+            </div>
+            <div class="menu-item" onclick="menuNavigate(2)">
+                <img src="../../assets/icons/icon-arus-kas.svg" class="menu-img"> 
+                <span class="menu-text">Arus Kas</span>
+            </div>
+            <div class="menu-item" onclick="menuNavigate(3)">
+                <img src="../../assets/icons/icon-pengaturan.svg" class="menu-img"> 
+                <span class="menu-text">Pengaturan</span>
+            </div>
+            <div class="menu-item" onclick="menuNavigate(4)">
+                <img src="../../assets/icons/icon-bantuan.svg" class="menu-img"> 
+                <span class="menu-text">Bantuan</span>
+            </div>
+        </div>
+        <div id="version">Open Warung v1.0.0 alpha</div>
+    </div>
+
+    <div id="content">
+        <beranda class="content-component visible"></beranda>
+        <barang class="content-component"></barang>
+        <arus-kas class="content-component"></arus-kas>
+        <pengaturan class="content-component"></pengaturan>
+        <bantuan class="content-component"></bantuan>
+    </div>
+</body>
+</html>
