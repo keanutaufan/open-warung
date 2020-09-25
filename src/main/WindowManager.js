@@ -1,0 +1,98 @@
+const path = require('path');
+const { BrowserWindow, Menu } = require('electron');
+
+module.exports = {
+    init(type, parent = undefined) {
+        let win;
+
+        switch (type) {
+            case 'MAIN_WINDOW':
+                win = new BrowserWindow({
+                    width: 1920, height: 1080,
+                    maxWidth: 1920, maxHeight: 1080,
+                    minWidth: 1280, minHeight: 720,
+                    title: 'Open Warung',
+                    show: false,
+                    webPreferences: {
+						nodeIntegration: true,
+						enableRemoteModule: true
+                    }
+				});
+				
+				win.windowType = 'main';
+                break;
+
+			case 'REGISTER_ITEM':
+				win = new BrowserWindow({
+					width: 500, height: 300,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Daftarkan Barang',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+
+				win.windowType = 'modal';
+				break;
+			
+			case 'ADD_ITEM_COUNT':
+				win = new BrowserWindow({
+					width: 500, height: 300,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Tambah Barang',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+
+				win.windowType = 'modal';
+				break;
+
+			case 'SUBTRACT_ITEM_COUNT':
+				win = new BrowserWindow({
+					width: 500, height: 300,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Kurangi Barang',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+
+				win.windowType = 'modal';
+				break;
+
+			default:
+				throw new Error(`${type} does not exist in ModalWindow`);
+                break;
+        }
+
+        win.load = this.load;
+        win.debug = this.debug;
+
+        return win;
+    },
+
+
+    load(file) {
+        this.loadURL(path.resolve(__dirname, file));
+        this.once('ready-to-show', () => {
+			this.show();
+			if (this.windowType == 'main') {
+				this.maximize();
+				Menu.setApplicationMenu(null);
+			}
+            return;
+        });
+    },
+
+    debug() {
+        this.webContents.openDevTools();
+        return;
+    }
+}
