@@ -1,0 +1,14 @@
+{
+  "name": "open-warung",
+  "version": "1.0.0",
+  "description": "Aplikasi manajemen stok untuk warung dan UMKM lainnya",
+  "scripts": {
+    "start": "electron ."
+  },
+  "main": "src/main/App.js",
+  "author": "Keanu Taufan",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "electron": "^10.1.2"
+  }
+}
