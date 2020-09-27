@@ -1,0 +1,132 @@
+barang {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 1fr 8fr;
+}
+
+barang > #barang-header {
+    color: white;
+    text-align: center;
+}
+
+barang > #barang-data {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: normal;
+}
+
+barang > #barang-data > #barang-data-control {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-bottom: 20px;
+}
+
+barang > #barang-data > #barang-data-control > #search-input {
+    background: #121212;
+    border: 3px solid #38A169;
+    color: white;
+    border-radius: 3px 3px 3px 3px;
+    width: 300px;
+    padding: 5px;
+    grid-column: 1;
+}
+
+barang > #barang-data > #barang-data-control > #barang-tambah-button {
+    width: 150px;
+    height: 40px;
+    grid-column: -1;
+    background: #38A169;
+    color: #FEFEFE;
+    font-size: 14px;
+    border: none;
+}
+
+barang > #barang-data > #barang-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    display: grid;
+    grid-template-columns: auto 75px 75px 150px 150px 50px 50px 50px;
+}
+
+th {
+    background-color: #38A169;
+    height: 40px;
+}
+
+th, td { 
+    text-align: left;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;;
+}
+
+td {
+    height: 35px;
+    overflow: hidden;
+}
+
+tr:nth-child(even) {
+    background: #121212;
+}
+
+.data-visualizer {
+    padding-left: 10px;
+}
+
+.table-button {
+    text-align: center;
+}
+
+.btn-delete {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.btn-delete:hover {
+    width: 25px;
+    height: 25px;
+}
+
+.img-delete {
+    width: inherit;
+    height: inherit;
+}
+
+.btn-subtract {
+    width: 15px;
+    height: 20px;
+    text-align: center;
+}
+
+.btn-subtract:hover {
+    width: 20px;
+    height: 25px;
+}
+
+.img-subtract {
+    width: inherit;
+    height: inherit;
+}
+
+.btn-add {
+    width: 15px;
+    height: 20px;
+    text-align: center;
+}
+
+.btn-add:hover {
+    width: 20px;
+    height: 25px;
+}
+
+.img-add {
+    width: inherit;
+    height: inherit;
+}
