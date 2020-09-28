@@ -1,6 +1,6 @@
 const { ipcRenderer } = require('electron');
 const Component = require('./Component');
-const Storage = require('./Storage')
+
 
 Component.register('components/beranda.html', 'beranda');
 Component.register('components/barang.html', 'barang');

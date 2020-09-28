@@ -1,4 +1,4 @@
-const Storage = require('./Storage');
+const Storage = require('../common/Storage');
 
 module.exports = {
     load() {
