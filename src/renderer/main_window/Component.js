@@ -1,4 +1,4 @@
-const ItemTable = require('./ItemTable');
+const ItemTable = require('../common/ItemTable');
 
 module.exports = {
     register(path, tagname) {
