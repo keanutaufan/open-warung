@@ -1,5 +1,6 @@
 const { ipcRenderer } = require('electron');
 const Component = require('./Component');
+const Storage = require('./Storage')
 
 Component.register('components/beranda.html', 'beranda');
 Component.register('components/barang.html', 'barang');
@@ -14,4 +15,27 @@ const menuNavigate = index => {
 
     document.getElementsByClassName('content-component visible')[0].classList.remove('visible');
     document.getElementsByClassName('content-component')[index].classList.add('visible');
+}
+
+
+const searchTable = () => {
+    let input, query, table, tr, td, txtValue;
+    input = document.getElementById('search-input');
+    query = input.value.toLowerCase();
+    table = document.getElementById("barang-table");
+    tr = Array.from(table.getElementsByTagName("tr"));  
+    
+    tr.forEach(data => {
+        td = data.getElementsByTagName('td')[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+   
+            if (txtValue.toLowerCase().indexOf(query) > -1) {
+                data.style.display = "";
+            }
+            else {
+                data.style.display = "none";
+            }
+        }
+    });
 }
