@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Barang</title>
+
+    <style>
+        body {
+            background: #121212;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FEFEFE;
+            font-family: 'Segoe UI';
+        }
+
+        #input-add-item {
+            width: 200px;
+            height: 32px;
+        }
+
+        button {
+            height: 36px;
+            background: #38A169;
+            color: #FEFEFE;
+            font-size: 14px;
+            border: none;
+        }
+
+        #error {
+            color: red;
+            font-family: 'Segoe UI';
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Tambah Barang</h1>
+    <br>
+    <input type="number" id="input-add-item" placeholder="Masukkan jumlah barang..." min="1" max="100" maxlength="3" oninput="validateInput()" value="1"> 
+    <button onclick="confirmAddItem()">Tambah</button>
+    <br>
+    <p id="error"></p>
+</body>
+</html>
