@@ -39,3 +39,12 @@ const searchTable = () => {
         }
     });
 }
+
+
+const addItem = index => {
+    ipcRenderer.send('addItem', index);
+}
+
+const subtractItem = index => {
+    ipcRenderer.send('subtractItem', index);
+}
