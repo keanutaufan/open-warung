@@ -48,7 +48,6 @@ const addItem = index => {
 }
 
 ipcRenderer.on('confirmAddItem', (_event, index, ammount) => {
-    console.log('triggered');
     Storage.addItem(index, ammount);
     ItemTable.load();
 });
@@ -56,3 +55,8 @@ ipcRenderer.on('confirmAddItem', (_event, index, ammount) => {
 const subtractItem = index => {
     ipcRenderer.send('subtractItem', index);
 }
+
+ipcRenderer.on('confirmSubtractItem', (_event, index, ammount) => {
+    Storage.subtractItem(index, ammount);
+    ItemTable.load();
+});

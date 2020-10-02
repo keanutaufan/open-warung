@@ -26,4 +26,12 @@ ipcMain.on('confirmAddItem', (_event, index, ammount) => {
 ipcMain.on('subtractItem', (_event, index) => {
     modalSubtractItem = WindowManager.init('SUBTRACT_ITEM_COUNT', mainWindow);
     modalSubtractItem.load('../renderer/modal_subtract_item/subtract-item.html');
+    modalSubtractItem.webContents.once('did-finish-load', () => {
+        modalSubtractItem.webContents.send('passIndex', index);
+    });
+});
+
+ipcMain.on('confirmSubtractItem', (_event, index, ammount) => {
+    mainWindow.webContents.send('confirmSubtractItem', index, ammount);
+    modalSubtractItem.close();
 });
