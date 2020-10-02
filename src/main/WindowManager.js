@@ -14,8 +14,7 @@ module.exports = {
                     title: 'Open Warung',
                     show: false,
                     webPreferences: {
-						nodeIntegration: true,
-						enableRemoteModule: true
+						nodeIntegration: true
                     }
 				});
 				
