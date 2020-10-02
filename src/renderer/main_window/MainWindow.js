@@ -1,5 +1,7 @@
 const { ipcRenderer } = require('electron');
 const Component = require('./Component');
+const Storage = require('./Storage');
+const ItemTable = require('./ItemTable');
 
 
 Component.register('components/beranda.html', 'beranda');
@@ -44,6 +46,12 @@ const searchTable = () => {
 const addItem = index => {
     ipcRenderer.send('addItem', index);
 }
+
+ipcRenderer.on('confirmAddItem', (_event, index, ammount) => {
+    console.log('triggered');
+    Storage.addItem(index, ammount);
+    ItemTable.load();
+});
 
 const subtractItem = index => {
     ipcRenderer.send('subtractItem', index);

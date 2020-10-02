@@ -13,6 +13,14 @@ app.on('ready', () => {
 ipcMain.on('addItem', (_event, index) => {
     modalAddItem = WindowManager.init('ADD_ITEM_COUNT', mainWindow);
     modalAddItem.load('../renderer/modal_add_item/add-item.html');
+    modalAddItem.webContents.once('did-finish-load', () => {
+        modalAddItem.webContents.send('passIndex', index);
+    });
+});
+
+ipcMain.on('confirmAddItem', (_event, index, ammount) => {
+    mainWindow.webContents.send('confirmAddItem', index, ammount);
+    modalAddItem.close();
 });
 
 ipcMain.on('subtractItem', (_event, index) => {
