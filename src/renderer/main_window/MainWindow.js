@@ -60,3 +60,13 @@ ipcRenderer.on('confirmSubtractItem', (_event, index, ammount) => {
     Storage.subtractItem(index, ammount);
     ItemTable.load();
 });
+
+const removeItem = index => {
+    let itemName = Storage.appData.items[index].barang;
+    ipcRenderer.send('removeItem', index, itemName);
+}
+
+ipcRenderer.on('confirmRemoveItem', (_event, index) => {
+    Storage.removeItem(index);
+    ItemTable.load();
+})

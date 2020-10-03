@@ -1,4 +1,4 @@
-const { app, ipcMain } = require('electron');
+const { app, dialog, ipcMain } = require('electron');
 const WindowManager = require('./WindowManager');
 
 
@@ -34,4 +34,18 @@ ipcMain.on('subtractItem', (_event, index) => {
 ipcMain.on('confirmSubtractItem', (_event, index, ammount) => {
     mainWindow.webContents.send('confirmSubtractItem', index, ammount);
     modalSubtractItem.close();
+});
+
+ipcMain.on('removeItem', (_event, index, itemName) => {
+    dialog.showMessageBox(mainWindow, {
+        type: 'warning',
+        title: 'Konfirmasi Hapus Barang',
+        message: 'Yakin akan menghapus barang ini?',
+        detail: `Anda akan menghapus ${itemName} dari daftar barang dagangan`,
+        buttons: ['Batal', 'Hapus']
+    }).then(result => {
+        if (result.response === 1) {
+            mainWindow.webContents.send('confirmRemoveItem', index);
+        }
+    });
 });
