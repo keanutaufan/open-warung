@@ -49,6 +49,7 @@ module.exports = {
 				});
 
 				win.windowType = 'modal';
+				win.parent = parent;
 				break;
 
 			case 'SUBTRACT_ITEM_COUNT':
@@ -64,6 +65,7 @@ module.exports = {
 				});
 
 				win.windowType = 'modal';
+				win.parent = parent;
 				break;
 
 			default:
@@ -85,13 +87,22 @@ module.exports = {
 			if (this.windowType == 'main') {
 				this.maximize();
 				Menu.setApplicationMenu(null);
+				return;
 			}
-            return;
+			else {
+				this.once('close', () => {
+					this.parent.setAlwaysOnTop(true);
+				});
+				this.once('closed', () => {
+					this.parent.setAlwaysOnTop(false);
+					return;
+				});
+			}
         });
     },
 
     debug() {
         this.webContents.openDevTools();
         return;
-    }
+	}
 }
