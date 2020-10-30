@@ -43,6 +43,21 @@ const searchTable = () => {
 }
 
 
+const registerItem = () => {
+    ipcRenderer.send('registerItem', 1);
+}
+
+ipcRenderer.on('confirmRegisterItem', (_event, barang, stok, min, beli, jual) => {
+    Storage.registerItem({
+        barang: barang,
+        stok: stok,
+        min: min,
+        beli: beli,
+        jual: jual
+    });
+    ItemTable.load();
+});
+
 const addItem = index => {
     ipcRenderer.send('addItem', index);
 }

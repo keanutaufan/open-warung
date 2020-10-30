@@ -23,7 +23,7 @@ module.exports = {
 
 			case 'REGISTER_ITEM':
 				win = new BrowserWindow({
-					width: 500, height: 300,
+					width: 500, height: 400,
 					modal: true, parent: parent,
 					backgroundColor: '#121212', show: false,
 					minimizable: false, resizable: false,
@@ -34,6 +34,7 @@ module.exports = {
 				});
 
 				win.windowType = 'modal';
+				win.parent = parent;
 				break;
 			
 			case 'ADD_ITEM_COUNT':

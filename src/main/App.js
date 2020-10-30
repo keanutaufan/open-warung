@@ -2,11 +2,21 @@ const { app, dialog, ipcMain } = require('electron');
 const WindowManager = require('./WindowManager');
 
 
-let mainWindow, modalAddItem, modalSubtractItem;
+let mainWindow, modalRegisterItem, modalAddItem, modalSubtractItem;
 
 app.on('ready', () => {
     mainWindow = WindowManager.init('MAIN_WINDOW');
     mainWindow.load('../renderer/main_window/main-window.html');
+});
+
+ipcMain.on('registerItem', () => {
+    modalRegisterItem = WindowManager.init('REGISTER_ITEM', mainWindow);
+    modalRegisterItem.load('../renderer/modal_register_item/register-item.html');
+});
+
+ipcMain.on('confirmRegisterItem', (_event, barang, stok, min, beli, jual) => {
+    mainWindow.webContents.send('confirmRegisterItem', barang, stok, min, beli, jual);
+    modalRegisterItem.close();
 });
 
 
