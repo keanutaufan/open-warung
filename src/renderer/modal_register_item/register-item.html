@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurangi Barang</title>
+    <script src="register-item.js"></script>
+
+    <style>
+        body {
+            background: #121212;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FEFEFE;
+            font-family: 'Segoe UI';
+        }
+
+        form {
+            height: 200;
+            /* display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr; */
+        }
+
+        #barang > #input-barang {
+            width: 430px;
+            height: 32px;
+        }
+
+        #stok, #harga {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        #stok > input, #harga > input {
+            width: 200px;
+            height: 32px;
+        }
+
+        button {
+            height: 36px;
+            width: 200px;
+            background: #38A169;
+            color: #FEFEFE;
+            font-size: 14px;
+            border: none;
+        }
+
+        #error {
+            color: red;
+            font-family: 'Segoe UI';
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Pendaftaran Barang</h1>
+    <br>
+    <form align="center">
+        <div id="barang" align="center">
+            <input type="text" id="input-barang" placeholder="Nama barang" maxlength="70" required>
+        </div>
+        <br>
+        <div id="stok" align="center">
+            <input type="number" id="input-stok" placeholder="Stok saat ini" min="1" maxlength="3" required>
+            <input type="number" id="input-min" placeholder="Stok minimal" min="1" maxlength="3" required>
+        </div>
+        <br>
+        <div id="harga" align="center">
+            <input type="number" id="input-beli" placeholder="Harga beli" min="1" required>
+            <input type="number" id="input-jual" placeholder="Harga jual" min="1" required>
+        </div>
+        <br>
+        <button type="submit" onclick="event.preventDefault(); confirmRegisterItem()">Daftarkan</button>
+    </form>
+    <p id="error"></p>
+</body>
+</html>
