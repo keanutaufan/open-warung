@@ -40,8 +40,10 @@
 <body>
     <h1>Kurangi Barang</h1>
     <br>
-    <input type="number" id="input-subtract-item" placeholder="Masukkan jumlah barang..." min="1" max="100" maxlength="3" oninput="validateInput()" value="1"> 
-    <button onclick="confirmSubtractItem()">Kurangi</button>
+    <form>
+        <input type="number" id="input-subtract-item" placeholder="Masukkan jumlah barang..." min="1" max="100" maxlength="3" oninput="validateInput()" value="1"> 
+        <button type="submit" onclick="event.preventDefault(); confirmSubtractItem()">Kurangi</button>
+    </form>
     <br>
     <p id="error"></p>
 </body>

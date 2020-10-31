@@ -40,8 +40,10 @@
 <body>
     <h1>Tambah Barang</h1>
     <br>
-    <input type="number" id="input-add-item" placeholder="Masukkan jumlah barang..." min="1" max="100" maxlength="3" oninput="validateInput()" value="1"> 
-    <button onclick="confirmAddItem()">Tambah</button>
+    <form>
+        <input type="number" id="input-add-item" placeholder="Masukkan jumlah barang..." min="1" max="100" maxlength="3" oninput="validateInput()" value="1"> 
+        <button type="submit" onclick="event.preventDefault(); confirmAddItem()">Tambah</button>
+    </form>
     <br>
     <p id="error"></p>
 </body>
