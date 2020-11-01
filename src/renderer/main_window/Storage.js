@@ -2,6 +2,7 @@ module.exports = {
     appData: {
         metadata: JSON.parse(localStorage.getItem('metadata')) || {},
         items: JSON.parse(localStorage.getItem('items')) || [],
+        cashFlow: JSON.parse(localStorage.getItem('cashFlow')) || [],
         userPreferences: JSON.parse(localStorage.getItem('userPreferences')) || []
     },
 
@@ -27,5 +28,10 @@ module.exports = {
     removeItem(index) {
         this.appData.items.splice(index, 1);
         this.save('items');
+    },
+
+    recordCashFlow(data) {
+        this.appData.cashFlow.push(data);
+        this.save('cashFlow');
     }
 }
