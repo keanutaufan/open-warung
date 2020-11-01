@@ -7,6 +7,9 @@ let mainWindow, modalRegisterItem, modalAddItem, modalSubtractItem;
 app.on('ready', () => {
     mainWindow = WindowManager.init('MAIN_WINDOW');
     mainWindow.load('../renderer/main_window/main-window.html');
+
+    // Comment/Hapus saat produksi
+    // mainWindow.debug();
 });
 
 ipcMain.on('registerItem', () => {
