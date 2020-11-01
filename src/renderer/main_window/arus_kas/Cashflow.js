@@ -1,6 +1,6 @@
 const Storage = require('../Storage');
 
-const store = (mode, title, description, ammount) => {
+const store = (mode, total, ...item) => {
     const currentTime = new Date();
     const dayName = [
         'Minggu', 'Senin', 'Selasa',
@@ -17,8 +17,7 @@ const store = (mode, title, description, ammount) => {
             hour: currentTime.getHours(),
             minute: currentTime.getMinutes()
         },
-        title: title,
-        description: description,
-        ammount: ammount
+        item: item,
+        total: total
     });
 }
