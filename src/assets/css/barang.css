@@ -49,29 +49,29 @@ barang > #barang-data > #barang-table {
     border-collapse: collapse;
 }
 
-tr {
+.barang-table-row {
     display: grid;
     grid-template-columns: auto 75px 75px 150px 150px 50px 50px 50px;
 }
 
-th {
+.barang-table-header {
     background-color: #38A169;
     height: 40px;
 }
 
-th, td { 
+.barang-table-data, .barang-table-heading { 
     text-align: left;
     padding-left: 10px;
     display: flex;
     align-items: center;;
 }
 
-td {
+.barang-table-data {
     height: 35px;
     overflow: hidden;
 }
 
-tr:nth-child(even) {
+.barang-table-row:nth-child(even) {
     background: #121212;
 }
 
