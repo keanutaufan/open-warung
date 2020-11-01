@@ -1,11 +1,15 @@
 const Storage = require('../Storage');
 
-const store = (mode, total, ...item) => {
+const store = (mode, ...item) => {
     const currentTime = new Date();
     const dayName = [
         'Minggu', 'Senin', 'Selasa',
         'Rabu', 'Kamis', 'Jumat', 'Sabtu'
     ];
+    let total = 0;
+    item.forEach(element => {
+        total += +element.price;
+    });
 
     Storage.recordCashFlow({
         mode: mode,
