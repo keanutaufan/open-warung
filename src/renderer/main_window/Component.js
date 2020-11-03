@@ -1,4 +1,5 @@
 const ItemTable = require('./ItemTable');
+const Cashflow = require('./arus_kas/Cashflow');
 
 module.exports = {
     register(path, tagname) {
@@ -12,6 +13,10 @@ module.exports = {
         .then(() => {
             if (tagname == 'barang') {
                 ItemTable.load();
+            }
+            else if (tagname == 'arus-kas') {
+                Cashflow.loadYearDropdown();
+                Cashflow.render(0, 0);
             }
         });
     }
