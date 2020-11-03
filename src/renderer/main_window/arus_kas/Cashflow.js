@@ -25,3 +25,20 @@ const store = (mode, ...item) => {
         total: total
     });
 }
+
+const loadYearDropdown = () => {
+    const dropdown = document.getElementById('kas-tahun');
+    let date = new Date();
+
+    for (let i = date.getFullYear(); i >= 2020; i--) {
+        let node = document.createElement('option');
+        node.value = i;
+        node.innerText = i.toString();
+        dropdown.appendChild(node);
+    }
+}
+
+module.exports = {
+    store: store,
+    loadYearDropdown: loadYearDropdown
+}
