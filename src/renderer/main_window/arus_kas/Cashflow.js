@@ -26,6 +26,66 @@ const store = (mode, ...item) => {
     });
 }
 
+const generateHTML = (data, index) => {
+    const operator = data.mode == 'pemasukan' ? '+' : '-';
+    const monthName = [
+        'ERROR', 'Januari', 'Februari', 'Maret',
+        'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+        'September', 'Oktober', 'November', 'Desember'
+    ];
+    let dataDOMString = '';
+    for (let i = data.item.length - 1; i >= 0; i--) {
+        dataDOMString += `
+        <tr class="kas-item">
+            <td class="kas-item-name">${data.item[i].name}</td>
+            <td class="kas-item-price">${new Intl.NumberFormat('id').format(data.item[i].price)}</td>
+        </tr>
+    `;
+    }
+
+    return `
+        <div class="card">
+            <div class="card-${data.mode}-header">
+                <div class="card-title" style="text-transform: capitalize">${data.mode}</div>
+                <div class="card-total">${operator}Rp${new Intl.NumberFormat('id').format(data.total)}</div>
+            </div>
+            <div class="card-body">
+                <table class="card-table">
+                    <tr class="kas-item-header">
+                        <th>Judul</th>
+                        <th>Nilai ${data.mode}</th>
+                    </tr>
+                    ${dataDOMString}
+                </table>
+            </div>
+            <div class="card-footer">
+                <div class="card-time">
+                    ${data.time.date} ${monthName[data.time.month]} ${data.time.year} 
+                    ${data.time.hour}:${data.time.minute}
+                </div>
+                <button class="card-cancel-${data.mode}" onclick="cancelCashflow(${data.mode}, ${index})">Batalkan</button>
+            </div>
+        </div>
+    `;
+}
+
+const render = (month, year) => {
+    let DOMString = '';
+    if (month == 0 || year == 0) {
+        Storage.appData.cashFlow.forEach((element, index) => {
+            DOMString += generateHTML(element, index);
+        });
+        document.getElementById('kas-data-list').innerHTML = DOMString;
+    }
+    else {
+        Storage.appData.cashFlow.forEach((element, index) => {
+            if (element.time.year == year && element.time.month == month) {
+                generateHTML(element, index);
+            }
+        })
+    }
+}
+
 const loadYearDropdown = () => {
     const dropdown = document.getElementById('kas-tahun');
     let date = new Date();
@@ -39,6 +99,7 @@ const loadYearDropdown = () => {
 }
 
 module.exports = {
+    render: render,
     store: store,
     loadYearDropdown: loadYearDropdown
 }

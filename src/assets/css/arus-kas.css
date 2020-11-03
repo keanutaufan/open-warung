@@ -73,3 +73,97 @@ arus-kas > #kas-data > #kas-data-control > #kas-pengeluaran {
     font-size: 14px;
     border: none;
 }
+
+.card {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 30px auto 25px;
+    margin-bottom: 20px;
+}
+
+.card-pemasukan-header {
+    background-color: var(--card-pemasukan-color);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-radius: 5px 5px 0 0;
+}
+
+.card-pengeluaran-header {
+    background-color: var(--card-pengeluaran-color);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-radius: 5px 5px 0 0;
+}
+
+.card-title {
+    grid-column: 1;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.card-total {
+    grid-column: -1;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.card-body {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.card-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.kas-item-header {
+    background-color: rgba(0, 0, 0, 0.25);
+    text-align: left;
+    border-radius: 3px;
+}
+
+.kas-item-header, .kas-item {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding-left: 10px;
+}
+
+.kas-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-footer {
+    display: grid;
+    background: var(--card-color);
+    grid-template-columns: repeat(6, 1fr);
+    border-radius: 0 0 5px 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.card-time {
+    grid-column: 1;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-self: center;
+}
+
+.card-cancel-pemasukan {
+    grid-column: -1;
+    background: var(--card-pemasukan-color);
+    color: white;
+    border: none;
+}
+
+.card-cancel-pengeluaran {
+    grid-column: -1;
+    background: var(--card-pengeluaran-color);
+    color: white;
+    border: none;
+}
