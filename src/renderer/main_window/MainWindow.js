@@ -2,6 +2,7 @@ const { ipcRenderer } = require('electron');
 const Component = require('./Component');
 const Storage = require('./Storage');
 const ItemTable = require('./ItemTable');
+const Cashflow = require('./arus_kas/Cashflow');
 
 
 Component.register('components/beranda.html', 'beranda');
@@ -89,3 +90,9 @@ ipcRenderer.on('confirmRemoveItem', (_event, index) => {
 const incomeCashflow = () => {
     ipcRenderer.send('incomeCashflow', 0);
 }
+
+ipcRenderer.on('confirmIncomeCashflow', (_event, data) => {
+    item = JSON.parse(data);
+    Cashflow.store('pemasukan', ...item);
+    Cashflow.render(0, 0);
+});

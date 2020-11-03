@@ -69,3 +69,8 @@ ipcMain.on('incomeCashflow', () => {
     modalIncomeCashflow = WindowManager.init('INCOME_CASHFLOW', mainWindow);
     modalIncomeCashflow.load('../renderer/modal_income_cashflow/income-cashflow.html');
 });
+
+ipcMain.on('confirmIncomeCashflow', (_event, item) => {
+    mainWindow.webContents.send('confirmIncomeCashflow', item);
+    modalIncomeCashflow.close();
+});
