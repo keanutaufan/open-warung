@@ -1,6 +1,13 @@
+:root {
+    --card-color: rgba(0, 0, 0, 0.45);
+    --card-pemasukan-color: #38A169;
+    --card-pengeluaran-color: #d9534f;
+}
+
 arus-kas {
     display: grid;
     height: 100%;
+    width: 100%;
     grid-template-rows: 1fr 8fr;
 }
 
@@ -21,7 +28,7 @@ arus-kas > #kas-data {
 arus-kas > #kas-data > #kas-data-control {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 arus-kas > #kas-data > #kas-data-control > #kas-bulan {
@@ -49,7 +56,7 @@ arus-kas > #kas-data > #kas-data-control > #kas-pemasukan {
     width: 150px;
     height: 40px;
     grid-column: -2;
-    background: #38A169;
+    background: var(--card-pemasukan-color);
     color: #FEFEFE;
     font-size: 14px;
     border: none;
@@ -61,7 +68,7 @@ arus-kas > #kas-data > #kas-data-control > #kas-pengeluaran {
     width: 150px;
     height: 40px;
     grid-column: -1;
-    background: #38A169;
+    background: var(--card-pengeluaran-color);
     color: #FEFEFE;
     font-size: 14px;
     border: none;
