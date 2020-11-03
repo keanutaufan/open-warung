@@ -69,6 +69,23 @@ module.exports = {
 				win.parent = parent;
 				break;
 
+			case 'INCOME_CASHFLOW':
+				win = new BrowserWindow({
+					width: 700, height: 450,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Catat Pemasukan',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+
+				win.windowType = 'modal';
+				win.parent = parent;
+				break;
+				
+
 			default:
 				throw new Error(`${type} does not exist in ModalWindow`);
                 break;

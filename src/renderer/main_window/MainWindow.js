@@ -84,4 +84,8 @@ const removeItem = index => {
 ipcRenderer.on('confirmRemoveItem', (_event, index) => {
     Storage.removeItem(index);
     ItemTable.load();
-})
+});
+
+const incomeCashflow = () => {
+    ipcRenderer.send('incomeCashflow', 0);
+}

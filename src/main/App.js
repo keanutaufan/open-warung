@@ -2,7 +2,9 @@ const { app, dialog, ipcMain } = require('electron');
 const WindowManager = require('./WindowManager');
 
 
-let mainWindow, modalRegisterItem, modalAddItem, modalSubtractItem;
+let mainWindow;
+let modalRegisterItem, modalAddItem, modalSubtractItem;
+let modalIncomeCashflow;
 
 app.on('ready', () => {
     mainWindow = WindowManager.init('MAIN_WINDOW');
@@ -61,4 +63,9 @@ ipcMain.on('removeItem', (_event, index, itemName) => {
             mainWindow.webContents.send('confirmRemoveItem', index);
         }
     });
+});
+
+ipcMain.on('incomeCashflow', () => {
+    modalIncomeCashflow = WindowManager.init('INCOME_CASHFLOW', mainWindow);
+    modalIncomeCashflow.load('../renderer/modal_income_cashflow/income-cashflow.html');
 });
