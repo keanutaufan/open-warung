@@ -8,7 +8,7 @@ arus-kas {
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-rows: 1fr 8fr;
+    grid-template-rows: 100px auto;
 }
 
 arus-kas > #kas-header {
