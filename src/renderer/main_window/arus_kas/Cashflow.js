@@ -34,14 +34,14 @@ const generateHTML = (data, index) => {
         'September', 'Oktober', 'November', 'Desember'
     ];
     let dataDOMString = '';
-    for (let i = data.item.length - 1; i >= 0; i--) {
+    data.item.forEach(element => {
         dataDOMString += `
-        <tr class="kas-item">
-            <td class="kas-item-name">${data.item[i].name}</td>
-            <td class="kas-item-price">${new Intl.NumberFormat('id').format(data.item[i].price)}</td>
-        </tr>
-    `;
-    }
+            <tr class="kas-item">
+                <td class="kas-item-name">${element.name}</td>
+                <td class="kas-item-value">${new Intl.NumberFormat('id').format(element.price)}</td>
+            </tr>
+        `;
+    });
 
     return `
         <div class="card">
