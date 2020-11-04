@@ -36,7 +36,7 @@ const addInputList = () => {
     document.getElementById('input-list').insertBefore(parentNode, document.getElementById('input-add'));
 }
 
-const confirmRegisterItem = () => {
+const confirmIncomeCashflow = () => {
     if (!validateInput()) {
         return;
     }
