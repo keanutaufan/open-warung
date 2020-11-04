@@ -33,5 +33,10 @@ module.exports = {
     recordCashFlow(data) {
         this.appData.cashFlow.push(data);
         this.save('cashFlow');
+    },
+
+    removeCashFlow(index) {
+        this.appData.cashFlow.splice(index, 1);
+        this.save('cashFlow');
     }
 }

@@ -112,3 +112,12 @@ ipcRenderer.on('confirmSpendingCashflow', (_event, data) => {
     Cashflow.store('pengeluaran', ...item);
     Cashflow.render(0, 0);
 });
+
+const removeCashflow = (mode, index) => {
+    ipcRenderer.send('removeCashflow', mode, index);
+}
+
+ipcRenderer.on('confirmRemoveCashflow', (_event, index) => {
+    Cashflow.remove(index);
+    applyCashflowFilter();
+})

@@ -84,3 +84,17 @@ ipcMain.on('confirmSpendingCashflow', (_event, item) => {
     mainWindow.webContents.send('confirmSpendingCashflow', item);
     modalSpendingCashflow.close();
 });
+
+ipcMain.on('removeCashflow', (_event, mode, index) => {
+    dialog.showMessageBox(mainWindow, {
+        type: 'warning',
+        title: 'Konfirmasi Hapus Catatan',
+        message: `Yakin akan menghapus catatan ${mode} ini?`,
+        detail: `Anda akan menghapus catatan ${mode} dari sistem. Ketika sudah dihapus, catatan tidak dapat dikembalikan.`,
+        buttons: ['Batal', 'Hapus']
+    }).then(result => {
+        if (result.response === 1) {
+            mainWindow.webContents.send('confirmRemoveCashflow', index);
+        }
+    });
+});

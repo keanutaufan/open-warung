@@ -26,6 +26,10 @@ const store = (mode, ...item) => {
     });
 }
 
+const remove = index => {
+    Storage.removeCashFlow(index);
+}
+
 const generateHTML = (data, index) => {
     const operator = data.mode == 'pemasukan' ? '+' : '-';
     const monthName = [
@@ -63,7 +67,7 @@ const generateHTML = (data, index) => {
                     ${data.time.date} ${monthName[data.time.month]} ${data.time.year} 
                     ${data.time.hour}:${data.time.minute}
                 </div>
-                <button class="card-cancel-${data.mode}" onclick="cancelCashflow(${data.mode}, ${index})">Batalkan</button>
+                <button class="card-delete-${data.mode}" onclick="removeCashflow('${data.mode}', ${index})">Hapus</button>
             </div>
         </div>
     `;
@@ -103,5 +107,6 @@ const loadYearDropdown = () => {
 module.exports = {
     render: render,
     store: store,
+    remove: remove,
     loadYearDropdown: loadYearDropdown
 }
