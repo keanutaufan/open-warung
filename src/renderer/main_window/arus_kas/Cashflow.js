@@ -80,7 +80,7 @@ const render = (month, year) => {
     }
     else {
         for (let i = Storage.appData.cashFlow.length - 1; i >= 0; i--) {
-            if (Storage.appData.cashFlow[i].year == year && Storage.appData.cashFlow[i].month == month) {
+            if (Storage.appData.cashFlow[i].time.year == year && Storage.appData.cashFlow[i].time.month == month) {
                 DOMString += generateHTML(Storage.appData.cashFlow[i], i);
             }
         }

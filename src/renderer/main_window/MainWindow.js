@@ -43,6 +43,12 @@ const searchTable = () => {
     });
 }
 
+const applyCashflowFilter = () => {
+    const month = +document.getElementById('kas-bulan').value;
+    const year = +document.getElementById('kas-tahun').value;
+    Cashflow.render(month, year);
+}
+
 
 const registerItem = () => {
     ipcRenderer.send('registerItem', 1);
