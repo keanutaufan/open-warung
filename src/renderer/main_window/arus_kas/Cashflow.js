@@ -71,18 +71,20 @@ const generateHTML = (data, index) => {
 
 const render = (month, year) => {
     let DOMString = '';
-    if (month == 0 || year == 0) {
-        Storage.appData.cashFlow.forEach((element, index) => {
-            DOMString += generateHTML(element, index);
-        });
+
+    if(month == 0 || year == 0) {
+        for (let i = Storage.appData.cashFlow.length - 1; i >= 0; i--) {
+            DOMString += generateHTML(Storage.appData.cashFlow[i], i);
+        }
         document.getElementById('kas-data-list').innerHTML = DOMString;
     }
     else {
-        Storage.appData.cashFlow.forEach((element, index) => {
-            if (element.time.year == year && element.time.month == month) {
-                generateHTML(element, index);
+        for (let i = Storage.appData.cashFlow.length - 1; i >= 0; i--) {
+            if (Storage.appData.cashFlow[i].year == year && Storage.appData.cashFlow[i].month == month) {
+                DOMString += generateHTML(Storage.appData.cashFlow[i], i);
             }
-        })
+        }
+        document.getElementById('kas-data-list').innerHTML = DOMString;
     }
 }
 
