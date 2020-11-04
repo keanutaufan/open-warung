@@ -79,3 +79,8 @@ ipcMain.on('spendingCashflow', () => {
     modalSpendingCashflow = WindowManager.init('SPENDING_CASHFLOW', mainWindow);
     modalSpendingCashflow.load('../renderer/modal_spending_cashflow/spending-cashflow.html');
 });
+
+ipcMain.on('confirmSpendingCashflow', (_event, item) => {
+    mainWindow.webContents.send('confirmSpendingCashflow', item);
+    modalSpendingCashflow.close();
+});

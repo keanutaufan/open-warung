@@ -100,3 +100,9 @@ ipcRenderer.on('confirmIncomeCashflow', (_event, data) => {
 const spendingCashflow = () => {
     ipcRenderer.send('spendingCashflow', 0);
 }
+
+ipcRenderer.on('confirmSpendingCashflow', (_event, data) => {
+    item = JSON.parse(data);
+    Cashflow.store('pengeluaran', ...item);
+    Cashflow.render(0, 0);
+});
