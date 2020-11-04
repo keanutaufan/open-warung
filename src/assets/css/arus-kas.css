@@ -8,12 +8,57 @@ arus-kas {
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-rows: 100px auto;
+    grid-template-rows: 130px auto;
 }
 
 arus-kas > #kas-header {
     color: white;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+arus-kas > #kas-header > #kas-balance {
+    grid-column: 1;
+    align-self: center;
+    margin-left: 35px;
+    background: rgba(0, 0, 0, 0.65);
+    width: 360px;
+    height: 80px;
+    border-radius: 6px;
+}
+
+arus-kas > #kas-header > #kas-balance > #kas-balance-header {
+    font-size: 16px;
+    background: #38A169;
+    border-radius: 6px 6px 0px 0px;
+    width: 100%;
     text-align: center;
+}
+
+arus-kas > #kas-header > #kas-balance > #kas-balance-body {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+arus-kas > #kas-header > #kas-balance > #kas-balance-body > #kas-balance-value {
+    grid-column: 1;
+    margin-left: 10px;
+}
+
+arus-kas > #kas-header > #kas-balance > #kas-balance-body > #kas-balance-edit {
+    grid-column: -1;
+    margin-right: 10px;
+}
+
+arus-kas > #kas-header > #kas-title {
+    grid-column: -1;
+    display: flex;
+    align-self: center;
+    margin-right: 35px;
 }
 
 arus-kas > #kas-data {
@@ -154,14 +199,14 @@ arus-kas > #kas-data > #kas-data-control > #kas-pengeluaran {
     align-self: center;
 }
 
-.card-cancel-pemasukan {
+.card-delete-pemasukan {
     grid-column: -1;
     background: var(--card-pemasukan-color);
     color: white;
     border: none;
 }
 
-.card-cancel-pengeluaran {
+.card-delete-pengeluaran {
     grid-column: -1;
     background: var(--card-pengeluaran-color);
     color: white;
