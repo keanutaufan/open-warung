@@ -84,6 +84,22 @@ module.exports = {
 				win.windowType = 'modal';
 				win.parent = parent;
 				break;
+
+			case 'SPENDING_CASHFLOW':
+				win = new BrowserWindow({
+					width: 700, height: 450,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Catat Pengeluaran',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+
+				win.windowType = 'modal';
+				win.parent = parent;
+				break;
 				
 
 			default:

@@ -4,7 +4,7 @@ const WindowManager = require('./WindowManager');
 
 let mainWindow;
 let modalRegisterItem, modalAddItem, modalSubtractItem;
-let modalIncomeCashflow;
+let modalIncomeCashflow, modalSpendingCashflow;
 
 app.on('ready', () => {
     mainWindow = WindowManager.init('MAIN_WINDOW');
@@ -73,4 +73,9 @@ ipcMain.on('incomeCashflow', () => {
 ipcMain.on('confirmIncomeCashflow', (_event, item) => {
     mainWindow.webContents.send('confirmIncomeCashflow', item);
     modalIncomeCashflow.close();
+});
+
+ipcMain.on('spendingCashflow', () => {
+    modalSpendingCashflow = WindowManager.init('SPENDING_CASHFLOW', mainWindow);
+    modalSpendingCashflow.load('../renderer/modal_spending_cashflow/spending-cashflow.html');
 });

@@ -96,3 +96,7 @@ ipcRenderer.on('confirmIncomeCashflow', (_event, data) => {
     Cashflow.store('pemasukan', ...item);
     Cashflow.render(0, 0);
 });
+
+const spendingCashflow = () => {
+    ipcRenderer.send('spendingCashflow', 0);
+}
