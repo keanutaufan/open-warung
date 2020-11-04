@@ -101,6 +101,13 @@ ipcRenderer.on('confirmIncomeCashflow', (_event, data) => {
     item = JSON.parse(data);
     Cashflow.store('pemasukan', ...item);
     Cashflow.render(0, 0);
+
+    total = 0;
+    item.forEach(element => {
+        total += +element.price;
+    });
+    Storage.addBalance(total);
+    Cashflow.loadBalance();
 });
 
 const spendingCashflow = () => {
@@ -111,6 +118,13 @@ ipcRenderer.on('confirmSpendingCashflow', (_event, data) => {
     item = JSON.parse(data);
     Cashflow.store('pengeluaran', ...item);
     Cashflow.render(0, 0);
+
+    total = 0;
+    item.forEach(element => {
+        total += +element.price;
+    });
+    Storage.subtractBalance(total);
+    Cashflow.loadBalance();
 });
 
 const removeCashflow = (mode, index) => {

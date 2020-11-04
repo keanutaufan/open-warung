@@ -1,7 +1,7 @@
 module.exports = {
     appData: {
         metadata: JSON.parse(localStorage.getItem('metadata')) || {},
-        account: JSON.parse(localStorage.getItem('dashboard')) || {balance: 0},
+        account: JSON.parse(localStorage.getItem('account')) || {balance: 0},
         items: JSON.parse(localStorage.getItem('items')) || [],
         cashFlow: JSON.parse(localStorage.getItem('cashFlow')) || [],
         userPreferences: JSON.parse(localStorage.getItem('userPreferences')) || []
@@ -39,5 +39,20 @@ module.exports = {
     removeCashFlow(index) {
         this.appData.cashFlow.splice(index, 1);
         this.save('cashFlow');
+    },
+
+    setBalance(value) {
+        this.appData.account.balance = value;
+        this.save('account');
+    },
+
+    addBalance(value) {
+        this.appData.account.balance += value;
+        this.save('account');
+    },
+
+    subtractBalance(value) {
+        this.appData.account.balance -= value;
+        this.save('account');
     }
 }
