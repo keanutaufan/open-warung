@@ -104,9 +104,14 @@ const loadYearDropdown = () => {
     }
 }
 
+const loadBalance = () => {
+    document.getElementById('kas-balance-value').innerText = `Rp${new Intl.NumberFormat('id').format(Storage.appData.account.balance)}`;
+}
+
 module.exports = {
     render: render,
     store: store,
     remove: remove,
-    loadYearDropdown: loadYearDropdown
+    loadYearDropdown: loadYearDropdown,
+    loadBalance: loadBalance
 }

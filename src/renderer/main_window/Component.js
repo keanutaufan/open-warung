@@ -15,6 +15,7 @@ module.exports = {
                 ItemTable.load();
             }
             else if (tagname == 'arus-kas') {
+                Cashflow.loadBalance();
                 Cashflow.loadYearDropdown();
                 Cashflow.render(0, 0);
             }

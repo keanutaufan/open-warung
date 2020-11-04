@@ -1,6 +1,7 @@
 module.exports = {
     appData: {
         metadata: JSON.parse(localStorage.getItem('metadata')) || {},
+        account: JSON.parse(localStorage.getItem('dashboard')) || {balance: 0},
         items: JSON.parse(localStorage.getItem('items')) || [],
         cashFlow: JSON.parse(localStorage.getItem('cashFlow')) || [],
         userPreferences: JSON.parse(localStorage.getItem('userPreferences')) || []
