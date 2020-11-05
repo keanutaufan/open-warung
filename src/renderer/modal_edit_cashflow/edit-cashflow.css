@@ -1,0 +1,86 @@
+/* Scroll bar */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+    background-color: #1E1E1E;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+
+body {
+    background: #121212;
+    margin: 0;
+}
+
+form {
+    display: grid;
+    grid-template-rows: 12vh 77vh 11vh;
+    width: 100%
+}
+
+#header-text {
+    color: #FEFEFE;
+    background: rgba(0, 0, 0, 0.4);
+    font-family: 'Segoe UI';
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#input-list {
+    overflow-y: scroll;
+}
+
+.input-container {
+    width: 95%;
+    margin: 0px 20px 10px 20px;
+}
+
+.input-judul {
+    margin-right: 15px;
+    width: 350px;
+    height: 32px;
+}
+
+.input-nilai {
+    margin-right: 10px;
+    width: 200px;
+    height: 32px;
+}
+
+.input-delete {
+    height: 34px;
+    width: 25px;
+    background: #d9534f;
+    color: white;
+    border: none;
+}
+
+#input-add {
+    height: 28px;
+    width: 75px;
+    margin-bottom: 20px;
+}
+
+button[type="submit"] {
+    height: 32px;
+    width: 100px;
+    background: #38A169;
+    color: #FEFEFE;
+    font-size: 14px;
+    border: none;
+    margin: 0 auto;
+}
+
+#footer {
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+}
