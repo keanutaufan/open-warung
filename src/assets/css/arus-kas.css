@@ -52,6 +52,7 @@ arus-kas > #kas-header > #kas-balance > #kas-balance-body > #kas-balance-value {
 arus-kas > #kas-header > #kas-balance > #kas-balance-body > #kas-balance-edit {
     grid-column: -1;
     margin-right: 10px;
+    margin-top: 5px;
 }
 
 arus-kas > #kas-header > #kas-balance > #kas-balance-body > #kas-balance-edit {
