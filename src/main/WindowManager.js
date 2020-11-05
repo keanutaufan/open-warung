@@ -100,7 +100,23 @@ module.exports = {
 				win.windowType = 'modal';
 				win.parent = parent;
 				break;
-				
+
+			case 'SET_BALANCE':
+				win = new BrowserWindow({
+					width: 500, height: 300,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Ubah Saldo',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+
+				win.windowType = 'modal';
+				win.parent = parent;
+				break;
+			
 
 			default:
 				throw new Error(`${type} does not exist in ModalWindow`);

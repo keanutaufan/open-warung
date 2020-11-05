@@ -54,6 +54,10 @@ arus-kas > #kas-header > #kas-balance > #kas-balance-body > #kas-balance-edit {
     margin-right: 10px;
 }
 
+arus-kas > #kas-header > #kas-balance > #kas-balance-body > #kas-balance-edit {
+    cursor: pointer;
+}
+
 arus-kas > #kas-header > #kas-title {
     grid-column: -1;
     display: flex;

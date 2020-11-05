@@ -5,6 +5,7 @@ const WindowManager = require('./WindowManager');
 let mainWindow;
 let modalRegisterItem, modalAddItem, modalSubtractItem;
 let modalIncomeCashflow, modalSpendingCashflow;
+let modalSetBalance;
 
 app.on('ready', () => {
     mainWindow = WindowManager.init('MAIN_WINDOW');
@@ -97,4 +98,9 @@ ipcMain.on('removeCashflow', (_event, mode, index) => {
             mainWindow.webContents.send('confirmRemoveCashflow', index);
         }
     });
+});
+
+ipcMain.on('setBalance', () => {
+    modalSetBalance = WindowManager.init('SET_BALANCE', mainWindow);
+    modalSetBalance.load('../renderer/modal_set_balance/set-balance.html');
 });

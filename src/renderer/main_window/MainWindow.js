@@ -134,4 +134,8 @@ const removeCashflow = (mode, index) => {
 ipcRenderer.on('confirmRemoveCashflow', (_event, index) => {
     Cashflow.remove(index);
     applyCashflowFilter();
-})
+});
+
+const setBalance = () => {
+    ipcRenderer.send('setBalance', 0);
+}
