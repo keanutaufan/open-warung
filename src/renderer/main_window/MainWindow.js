@@ -138,7 +138,7 @@ ipcRenderer.on('confirmRemoveCashflow', (_event, index) => {
 
 const editCashflow = (mode, index) => {
     data = JSON.stringify(Storage.appData.cashFlow[index].item);
-    ipcRenderer.send('editCashflow', mode, data);
+    ipcRenderer.send('editCashflow', mode, index, data);
 }
 
 const setBalance = () => {

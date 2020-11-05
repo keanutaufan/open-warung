@@ -100,11 +100,11 @@ ipcMain.on('removeCashflow', (_event, mode, index) => {
     });
 });
 
-ipcMain.on('editCashflow', (_event, mode, data) => {
+ipcMain.on('editCashflow', (_event, mode, index, data) => {
     modalEditCashflow = WindowManager.init('EDIT_CASHFLOW', mainWindow);
     modalEditCashflow.load('../renderer/modal_edit_cashflow/edit-cashflow.html');
     modalEditCashflow.webContents.once('did-finish-load', () => {
-        modalEditCashflow.webContents.send('passData', mode, data);
+        modalEditCashflow.webContents.send('passData', mode, index, data);
     });
 });
 
