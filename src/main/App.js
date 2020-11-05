@@ -100,7 +100,15 @@ ipcMain.on('removeCashflow', (_event, mode, index) => {
     });
 });
 
-ipcMain.on('setBalance', () => {
+ipcMain.on('setBalance', (_event, balance) => {
     modalSetBalance = WindowManager.init('SET_BALANCE', mainWindow);
     modalSetBalance.load('../renderer/modal_set_balance/set-balance.html');
+    modalSetBalance.webContents.once('did-finish-load', () => {
+        modalSetBalance.webContents.send('passBalance', balance);
+    });
+});
+
+ipcMain.on('confirmSetBalance', (_event, value) => {
+    mainWindow.webContents.send('confirmSetBalance', value);
+    modalSetBalance.close();
 });

@@ -137,5 +137,10 @@ ipcRenderer.on('confirmRemoveCashflow', (_event, index) => {
 });
 
 const setBalance = () => {
-    ipcRenderer.send('setBalance', 0);
+    ipcRenderer.send('setBalance', Storage.appData.account.balance);
 }
+
+ipcRenderer.on('confirmSetBalance', (_event, value) => {
+    Storage.setBalance(value);
+    Cashflow.loadBalance();
+});

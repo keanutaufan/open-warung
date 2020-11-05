@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Saldo</title>
+    <script src="set-balance.js"></script>
 
     <style>
         body {
@@ -41,8 +42,8 @@
     <h1>Edit Saldo</h1>
     <br>
     <form>
-        <input type="number" id="input-set-balance" placeholder="Masukkan saldo saat ini" min="1" max="100" maxlength="3" oninput="validateInput()"> 
-        <button type="submit">Edit</button>
+        <input type="number" id="input-set-balance" placeholder="Masukkan saldo saat ini" min="0" oninput="validateInput()"> 
+        <button type="submit" onclick="event.preventDefault(); confirmSetBalance();">Edit</button>
     </form>
     <br>
     <p id="error"></p>
