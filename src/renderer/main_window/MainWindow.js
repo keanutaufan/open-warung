@@ -141,6 +141,28 @@ const editCashflow = (mode, index) => {
     ipcRenderer.send('editCashflow', mode, index, data);
 }
 
+ipcRenderer.on('confirmEditCashflow', (_event, mode, index, initialTotal, data) => {
+    item = JSON.parse(data);
+    
+    finalTotal = 0;
+    item.forEach(element => {
+        finalTotal += +element.price;
+    });
+    Storage.editCashflow(index, finalTotal, item);
+
+    if (mode == 'pemasukan') {
+        Storage.subtractBalance(initialTotal);
+        Storage.addBalance(finalTotal);
+    }
+    else {
+        Storage.addBalance(initialTotal);
+        Storage.subtractBalance(finalTotal);
+    }
+
+    Cashflow.loadBalance();
+    applyCashflowFilter();
+});
+
 const setBalance = () => {
     ipcRenderer.send('setBalance', Storage.appData.account.balance);
 }

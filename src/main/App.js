@@ -108,6 +108,11 @@ ipcMain.on('editCashflow', (_event, mode, index, data) => {
     });
 });
 
+ipcMain.on('confirmEditCashflow', (_event, mode, index, initialTotal, data) => {
+    mainWindow.webContents.send('confirmEditCashflow', mode, index, initialTotal, data);
+    modalEditCashflow.close();
+});
+
 ipcMain.on('setBalance', (_event, balance) => {
     modalSetBalance = WindowManager.init('SET_BALANCE', mainWindow);
     modalSetBalance.load('../renderer/modal_set_balance/set-balance.html');

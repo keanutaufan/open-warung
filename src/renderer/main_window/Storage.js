@@ -41,6 +41,12 @@ module.exports = {
         this.save('cashFlow');
     },
 
+    editCashflow(index, total, data) {
+        this.appData.cashFlow[index].item = data;
+        this.appData.cashFlow[index].total = total;
+        this.save('cashFlow');
+    },
+
     setBalance(value) {
         this.appData.account.balance = value;
         this.save('account');
