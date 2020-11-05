@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Saldo</title>
+
+    <style>
+        body {
+            background: #121212;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FEFEFE;
+            font-family: 'Segoe UI';
+        }
+
+        #input-set-balance {
+            width: 200px;
+            height: 32px;
+        }
+
+        button {
+            height: 36px;
+            background: #38A169;
+            color: #FEFEFE;
+            font-size: 14px;
+            width: 72px;
+            border: none;
+        }
+
+        #error {
+            color: red;
+            font-family: 'Segoe UI';
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Edit Saldo</h1>
+    <br>
+    <form>
+        <input type="number" id="input-set-balance" placeholder="Masukkan saldo saat ini" min="1" max="100" maxlength="3" oninput="validateInput()"> 
+        <button type="submit">Edit</button>
+    </form>
+    <br>
+    <p id="error"></p>
+</body>
+</html>
