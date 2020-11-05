@@ -101,6 +101,22 @@ module.exports = {
 				win.parent = parent;
 				break;
 
+			case 'EDIT_CASHFLOW':
+				win = new BrowserWindow({
+					width: 700, height: 450,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Edit Catatan',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+
+				win.windowType = 'modal';
+				win.parent = parent;
+				break;
+
 			case 'SET_BALANCE':
 				win = new BrowserWindow({
 					width: 500, height: 300,

@@ -204,15 +204,17 @@ arus-kas > #kas-data > #kas-data-control > #kas-pengeluaran {
     align-self: center;
 }
 
-.card-delete-pemasukan {
+.card-button-container {
     grid-column: -1;
+}
+
+.card-delete-pemasukan {
     background: var(--card-pemasukan-color);
     color: white;
     border: none;
 }
 
 .card-delete-pengeluaran {
-    grid-column: -1;
     background: var(--card-pengeluaran-color);
     color: white;
     border: none;

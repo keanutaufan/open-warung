@@ -4,7 +4,7 @@ const WindowManager = require('./WindowManager');
 
 let mainWindow;
 let modalRegisterItem, modalAddItem, modalSubtractItem;
-let modalIncomeCashflow, modalSpendingCashflow;
+let modalIncomeCashflow, modalSpendingCashflow, modalEditCashflow;
 let modalSetBalance;
 
 app.on('ready', () => {
@@ -97,6 +97,14 @@ ipcMain.on('removeCashflow', (_event, mode, index) => {
         if (result.response === 1) {
             mainWindow.webContents.send('confirmRemoveCashflow', index);
         }
+    });
+});
+
+ipcMain.on('editCashflow', (_event, mode, index) => {
+    modalEditCashflow = WindowManager.init('EDIT_CASHFLOW', mainWindow);
+    modalEditCashflow.load('../renderer/modal_edit_cashflow/edit-cashflow.html');
+    modalEditCashflow.webContents.once('did-finish-load', () => {
+        modalEditCashflow.webContents.send('passData', mode, index);
     });
 });
 

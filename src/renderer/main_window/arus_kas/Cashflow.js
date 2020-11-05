@@ -67,7 +67,10 @@ const generateHTML = (data, index) => {
                     ${data.time.date} ${monthName[data.time.month]} ${data.time.year} 
                     ${data.time.hour}:${data.time.minute}
                 </div>
-                <button class="card-delete-${data.mode}" onclick="removeCashflow('${data.mode}', ${index})">Hapus</button>
+                <div class="card-button-container">
+                    <button class="card-delete-${data.mode}" onclick="removeCashflow('${data.mode}', ${index})">Hapus</button>
+                    <button class="card-delete-${data.mode}" onclick="editCashflow('${data.mode}', ${index})">Edit</button>
+                </div>
             </div>
         </div>
     `;
