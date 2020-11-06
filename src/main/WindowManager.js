@@ -69,6 +69,22 @@ module.exports = {
 				win.parent = parent;
 				break;
 
+			case 'EDIT_ITEM':
+				win = new BrowserWindow({
+					width: 500, height: 400,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Edit Barang',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+
+				win.windowType = 'modal';
+				win.parent = parent;
+				break;
+
 			case 'INCOME_CASHFLOW':
 				win = new BrowserWindow({
 					width: 700, height: 450,

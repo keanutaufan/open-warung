@@ -93,6 +93,11 @@ ipcRenderer.on('confirmRemoveItem', (_event, index) => {
     ItemTable.load();
 });
 
+const editItem = index => {
+    data = Storage.appData.items[index];
+    ipcRenderer.send('editItem', index, data.barang, data.stok, data.beli, data.min, data.jual);
+}
+
 const incomeCashflow = () => {
     ipcRenderer.send('incomeCashflow', 0);
 }

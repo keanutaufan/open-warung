@@ -31,6 +31,10 @@ module.exports = {
         this.save('items');
     },
 
+    editItem(index, data) {
+        this.appData.items[index] = data;
+    },
+
     recordCashFlow(data) {
         this.appData.cashFlow.push(data);
         this.save('cashFlow');

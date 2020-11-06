@@ -3,7 +3,7 @@ const WindowManager = require('./WindowManager');
 
 
 let mainWindow;
-let modalRegisterItem, modalAddItem, modalSubtractItem;
+let modalRegisterItem, modalAddItem, modalSubtractItem, modalEditItem;
 let modalIncomeCashflow, modalSpendingCashflow, modalEditCashflow;
 let modalSetBalance;
 
@@ -50,6 +50,14 @@ ipcMain.on('subtractItem', (_event, index) => {
 ipcMain.on('confirmSubtractItem', (_event, index, ammount) => {
     mainWindow.webContents.send('confirmSubtractItem', index, ammount);
     modalSubtractItem.close();
+});
+
+ipcMain.on('editItem', (_event, index, barang, stok, min, beli, jual) => {
+    modalEditItem = WindowManager.init('EDIT_ITEM', mainWindow);
+    modalEditItem.load('../renderer/modal_edit_item/edit-item.html');
+    modalEditItem.webContents.once('did-finish-load', () => {
+        modalEditItem.webContents.send('passIndex', index, barang, stok, beli, min, jual);
+    });
 });
 
 ipcMain.on('removeItem', (_event, index, itemName) => {
