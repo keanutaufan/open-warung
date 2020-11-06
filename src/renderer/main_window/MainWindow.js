@@ -95,8 +95,20 @@ ipcRenderer.on('confirmRemoveItem', (_event, index) => {
 
 const editItem = index => {
     data = Storage.appData.items[index];
-    ipcRenderer.send('editItem', index, data.barang, data.stok, data.beli, data.min, data.jual);
+    ipcRenderer.send('editItem', index, data.barang, data.stok, data.min, data.beli, data.jual);
 }
+
+ipcRenderer.on('confirmEditItem', (_event, index, barang, stok, min, beli, jual) => {
+    data = {
+        barang: barang,
+        stok: stok,
+        min: min,
+        beli: beli,
+        jual: jual
+    }
+    Storage.editItem(index, data);
+    ItemTable.load();
+});
 
 const incomeCashflow = () => {
     ipcRenderer.send('incomeCashflow', 0);

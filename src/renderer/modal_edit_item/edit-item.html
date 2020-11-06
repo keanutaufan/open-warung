@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Barang</title>
+    <script src="edit-item.js"></script>
 
     <style>
         body {
@@ -69,7 +70,7 @@
             <input type="number" id="input-jual" placeholder="Harga jual" min="1" required>
         </div>
         <br>
-        <button type="submit" onclick="">Edit</button>
+        <button type="submit" onclick="event.preventDefault(); confirmEditItem()">Edit</button>
     </form>
     <p id="error"></p>
 </body>

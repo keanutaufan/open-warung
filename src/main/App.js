@@ -56,8 +56,13 @@ ipcMain.on('editItem', (_event, index, barang, stok, min, beli, jual) => {
     modalEditItem = WindowManager.init('EDIT_ITEM', mainWindow);
     modalEditItem.load('../renderer/modal_edit_item/edit-item.html');
     modalEditItem.webContents.once('did-finish-load', () => {
-        modalEditItem.webContents.send('passIndex', index, barang, stok, beli, min, jual);
+        modalEditItem.webContents.send('passData', index, barang, stok, beli, min, jual);
     });
+});
+
+ipcMain.on('confirmEditItem', (_event, index, barang, stok, min, beli, jual) => {
+    mainWindow.webContents.send('confirmEditItem', index, barang, stok, min, beli, jual);
+    modalEditItem.close();
 });
 
 ipcMain.on('removeItem', (_event, index, itemName) => {
