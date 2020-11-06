@@ -51,7 +51,7 @@ barang > #barang-data > #barang-table {
 
 .barang-table-row {
     display: grid;
-    grid-template-columns: auto 75px 75px 150px 150px 50px 50px 50px;
+    grid-template-columns: auto 75px 75px 150px 150px 50px 50px 50px 50px;
 }
 
 .barang-table-header {
@@ -127,6 +127,22 @@ barang > #barang-data > #barang-table {
 }
 
 .img-add {
+    width: inherit;
+    height: inherit;
+}
+
+.btn-edit {
+    width: 15px;
+    height: 20px;
+    text-align: center;
+}
+
+.btn-edit:hover {
+    width: 20px;
+    height: 25px;
+}
+
+.img-edit {
     width: inherit;
     height: inherit;
 }
