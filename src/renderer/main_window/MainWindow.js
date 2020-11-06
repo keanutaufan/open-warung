@@ -12,6 +12,19 @@ Component.register('components/pengaturan.html', 'pengaturan');
 Component.register('components/bantuan.html', 'bantuan');
 
 
+window.addEventListener('load', () => {
+    const date = new Date();
+    const monthName = [
+        'Januari', 'Februari', 'Maret',
+        'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+        'September', 'Oktober', 'November', 'Desember'
+    ];
+    const warungName = Storage.appData.account.name || "";
+    const separator = warungName == '' ? ' ' : ' - ';
+    const currentDate = `${date.getDate()} ${monthName[date.getMonth()]} ${date.getFullYear()}`;
+    document.getElementById('topbar').innerText = `${warungName}${separator}${currentDate}`;
+});
+
 const menuNavigate = index => {
     document.getElementsByClassName('menu-item selected')[0].classList.remove('selected');
     document.getElementsByClassName('menu-item')[index].classList.add('selected');
