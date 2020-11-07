@@ -3,6 +3,7 @@ const Component = require('./Component');
 const Storage = require('./Storage');
 const ItemTable = require('./ItemTable');
 const Cashflow = require('./arus_kas/Cashflow');
+const HomeLoader = require('./beranda/HomeLoader');
 
 
 Component.register('components/beranda.html', 'beranda');
@@ -137,6 +138,7 @@ ipcRenderer.on('confirmIncomeCashflow', (_event, data) => {
         total += +element.price;
     });
     Storage.addBalance(total);
+    HomeLoader.loadBalance();
     Cashflow.loadBalance();
 });
 
@@ -154,6 +156,7 @@ ipcRenderer.on('confirmSpendingCashflow', (_event, data) => {
         total += +element.price;
     });
     Storage.subtractBalance(total);
+    HomeLoader.loadBalance();
     Cashflow.loadBalance();
 });
 
@@ -190,6 +193,7 @@ ipcRenderer.on('confirmEditCashflow', (_event, mode, index, initialTotal, data) 
     }
 
     Cashflow.loadBalance();
+    HomeLoader.loadBalance();
     applyCashflowFilter();
 });
 
@@ -200,4 +204,5 @@ const setBalance = () => {
 ipcRenderer.on('confirmSetBalance', (_event, value) => {
     Storage.setBalance(value);
     Cashflow.loadBalance();
+    HomeLoader.loadBalance();
 });
