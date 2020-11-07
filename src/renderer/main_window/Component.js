@@ -1,5 +1,6 @@
 const ItemTable = require('./ItemTable');
 const Cashflow = require('./arus_kas/Cashflow');
+const HomeLoader = require('./beranda/HomeLoader');
 
 module.exports = {
     register(path, tagname) {
@@ -11,7 +12,10 @@ module.exports = {
             document.querySelector(tagname).innerHTML = data;
         })
         .then(() => {
-            if (tagname == 'barang') {
+            if (tagname == 'beranda') {
+                HomeLoader.load();
+            }
+            else if (tagname == 'barang') {
                 ItemTable.load();
             }
             else if (tagname == 'arus-kas') {
