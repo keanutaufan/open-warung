@@ -3,6 +3,7 @@ const WindowManager = require('./WindowManager');
 
 
 let mainWindow;
+let modalEditProfile;
 let modalRegisterItem, modalAddItem, modalSubtractItem, modalEditItem;
 let modalIncomeCashflow, modalSpendingCashflow, modalEditCashflow;
 let modalSetBalance;
@@ -137,4 +138,17 @@ ipcMain.on('setBalance', (_event, balance) => {
 ipcMain.on('confirmSetBalance', (_event, value) => {
     mainWindow.webContents.send('confirmSetBalance', value);
     modalSetBalance.close();
+});
+
+ipcMain.on('editProfile', (_event, currentName, currentLocation) => {
+    modalEditProfile = WindowManager.init('EDIT_PROFILE', mainWindow);
+    modalEditProfile.load('../renderer/modal_edit_profile/edit-profile.html');
+    modalEditProfile.webContents.once('did-finish-load', () => {
+        modalEditProfile.webContents.send('passData', currentName, currentLocation);
+    });
+});
+
+ipcMain.on('confirmEditProfile', (_event, name, location) => {
+    mainWindow.webContents.send('confirmEditName', name, location);
+    modalEditProfile.close();
 });

@@ -148,6 +148,22 @@ module.exports = {
 				win.windowType = 'modal';
 				win.parent = parent;
 				break;
+
+			case 'EDIT_PROFILE':
+				win = new BrowserWindow({
+					width: 500, height: 300,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Edit Nama Warung',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+	
+				win.windowType = 'modal';
+				win.parent = parent;
+				break;
 			
 
 			default:

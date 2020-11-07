@@ -64,5 +64,11 @@ module.exports = {
     subtractBalance(value) {
         this.appData.account.balance -= value;
         this.save('account');
+    },
+
+    editProfile(name, location) {
+        this.appData.account.name = name;
+        this.appData.account.location = location;
+        this.save('account');
     }
 }

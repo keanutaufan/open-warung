@@ -206,3 +206,12 @@ ipcRenderer.on('confirmSetBalance', (_event, value) => {
     Cashflow.loadBalance();
     HomeLoader.loadBalance();
 });
+
+const editProfile = () => {
+    ipcRenderer.send('editProfile', Storage.appData.account.name, Storage.appData.account.location);
+}
+
+ipcRenderer.on('confirmEditProfile', (_event, name, location) => {
+    Storage.editProfile(name, location);
+    HomeLoader.loadProfile();
+});

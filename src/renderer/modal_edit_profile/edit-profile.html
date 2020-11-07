@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profil Warung</title>
+
+    <style>
+        body {
+            background: #121212;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FEFEFE;
+            font-family: 'Segoe UI';
+        }
+
+        #input-edit-name {
+            width: 300px;
+            height: 32px;
+        }
+
+        #input-edit-location {
+            width: 300px;
+            height: 32px;
+        }
+
+        button {
+            height: 36px;
+            background: #38A169;
+            color: #FEFEFE;
+            font-size: 14px;
+            width: 128px;
+            border: none;
+        }
+
+        #error {
+            color: red;
+            font-family: 'Segoe UI';
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Edit Profil Warung</h1>
+    <form>
+        <input type="text" id="input-edit-name" placeholder="Masukkan nama warung" maxlength="20" oninput="validateInput()">
+        <br><br>
+        <select name="input-edit-location" id="input-edit-location">
+            <option value="0">--- Pilih Lokasi ---</option>
+            <optgroup label="Sumatra">
+                <option value="Aceh">Aceh</option>
+                <option value="Sumatra Utara">Sumatra Utara</option>
+                <option value="Sumatra Barat">Sumatra Barat</option>
+                <option value="Riau">Riau</option>
+                <option value="Kepulauan Riau">Kepulauan Riau</option>
+                <option value="Jambi">Jambi</option>
+                <option value="Bengkulu">Bengkulu</option>
+                <option value="Sumatra Selatan">Sumatra Selatan</option>
+                <option value="Bangka Belitung">Bangka Belitung</option>
+                <option value="Lampung">Lampung</option>
+            </optgroup>
+            <optgroup label="Jawa">
+                <option value="Banten">Banten</option>
+                <option value="Jawa Barat">Jawa Barat</option>
+                <option value="Jakarta">Jakarta</option>
+                <option value="Jawa Tengah">Jawa Tengah</option>
+                <option value="Yogyakarta">Yogyakarta</option>
+                <option value="Jawa Timur">Jawa Timur</option>
+                <option value="Bali">Bali</option>
+            </optgroup>
+            <optgroup label="Kepulauan Nusa Tenggara">
+                <option value="Bali">Bali</option>
+                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+            </optgroup>
+            <optgroup label="Kalimantan">
+                <option value="Kalimantan Barat">Kalimantan Barat</option>
+                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                <option value="Kalimantan Timur">Kalimantan Timur</option>
+                <option value="Kalimantan Utara">Kalimantan Utara</option>
+            </optgroup>
+            <optgroup label="Sulawesi">
+                <option value="Gorontalo">Gorontalo</option>
+                <option value="Sulawesi Barat">Sulawesi Barat</option>
+                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                <option value="Sulawesi Utara">Sulawesi Utara</option>
+            </optgroup>
+            <optgroup label="Kepulauan Maluku">
+                <option value="Maluku">Maluku</option>
+                <option value="Maluku Utara">Maluku Utara</option>
+            </optgroup>
+            <optgroup label="Papua">
+                <option value="Papua">Papua</option>
+                <option value="Papua Barat">Papua Barat</option>
+            </optgroup>
+        </select>  
+        <br><br>
+        <button type="submit" onclick="event.preventDefault()">Edit</button>
+    </form>
+    <br>
+    <p id="error"></p>
+</body>
+</html>
