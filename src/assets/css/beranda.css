@@ -1,0 +1,98 @@
+beranda {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows: 130px auto;
+}
+
+#header {
+    color: white;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#profile {
+    grid-column: 1;
+    align-self: center;
+    margin-left: 35px;
+    background: rgba(0, 0, 0, 0.65);
+    width: 480px;
+    height: 80px;
+    border-radius: 6px;
+}
+
+.card-header {
+    font-size: 16px;
+    background: #38A169;
+    border-radius: 6px 6px 0px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+#profile-body {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    grid-template-columns: 4fr 1fr;
+}
+
+#profile-name {
+    font-size: 24px;
+    grid-row: 1;
+    grid-column: 1;
+    margin-left: 10px;
+}
+
+#profile-location {
+    font-size: 14px;
+    grid-row: -1;
+    grid-column: 1;
+    margin-left: 12px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: -10px;
+}
+
+#profile-edit {
+    grid-row: 1 / -1;
+    grid-column: -1;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+#profile-edit:hover {
+    cursor: pointer;
+}
+
+#balance {
+    grid-column: -1;
+    align-self: center;
+    margin-right: 35px;
+    background: rgba(0, 0, 0, 0.65);
+    width: 360px;
+    height: 80px;
+    border-radius: 6px;
+}
+
+#balance-body {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+#balance-value {
+    grid-column: 1;
+    margin-left: 10px;
+}
+
+#balance-edit {
+    grid-column: -1;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+#balance-edit {
+    cursor: pointer;
+}
