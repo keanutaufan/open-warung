@@ -149,6 +149,6 @@ ipcMain.on('editProfile', (_event, currentName, currentLocation) => {
 });
 
 ipcMain.on('confirmEditProfile', (_event, name, location) => {
-    mainWindow.webContents.send('confirmEditName', name, location);
+    mainWindow.webContents.send('confirmEditProfile', name, location);
     modalEditProfile.close();
 });
