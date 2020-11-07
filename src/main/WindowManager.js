@@ -151,7 +151,7 @@ module.exports = {
 
 			case 'EDIT_PROFILE':
 				win = new BrowserWindow({
-					width: 500, height: 300,
+					width: 500, height: 350,
 					modal: true, parent: parent,
 					backgroundColor: '#121212', show: false,
 					minimizable: false, resizable: false,
