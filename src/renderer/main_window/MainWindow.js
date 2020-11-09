@@ -79,6 +79,7 @@ ipcRenderer.on('confirmRegisterItem', (_event, barang, stok, min, beli, jual) =>
         beli: beli,
         jual: jual
     });
+    HomeLoader.loadBarang();
     ItemTable.load();
 });
 
@@ -107,6 +108,7 @@ const removeItem = index => {
 
 ipcRenderer.on('confirmRemoveItem', (_event, index) => {
     Storage.removeItem(index);
+    HomeLoader.loadBarang();
     ItemTable.load();
 });
 
@@ -142,6 +144,7 @@ ipcRenderer.on('confirmIncomeCashflow', (_event, data) => {
     });
     Storage.addBalance(total);
     HomeLoader.loadBalance();
+    HomeLoader.loadCashflow();
     Cashflow.loadBalance();
 });
 
@@ -160,6 +163,7 @@ ipcRenderer.on('confirmSpendingCashflow', (_event, data) => {
     });
     Storage.subtractBalance(total);
     HomeLoader.loadBalance();
+    HomeLoader.loadCashflow();
     Cashflow.loadBalance();
 });
 
@@ -169,6 +173,7 @@ const removeCashflow = (mode, index) => {
 
 ipcRenderer.on('confirmRemoveCashflow', (_event, index) => {
     Cashflow.remove(index);
+    HomeLoader.loadCashflow();
     applyCashflowFilter();
 });
 
@@ -197,6 +202,7 @@ ipcRenderer.on('confirmEditCashflow', (_event, mode, index, initialTotal, data) 
 
     Cashflow.loadBalance();
     HomeLoader.loadBalance();
+    HomeLoader.loadCashflow();
     applyCashflowFilter();
 });
 
