@@ -13,7 +13,8 @@ Component.register('components/pengaturan.html', 'pengaturan');
 Component.register('components/bantuan.html', 'bantuan');
 
 
-window.addEventListener('load', () => {
+
+const loadTopbar = () => {
     const date = new Date();
     const monthName = [
         'Januari', 'Februari', 'Maret',
@@ -24,7 +25,9 @@ window.addEventListener('load', () => {
     const separator = warungName == '' ? ' ' : ' - ';
     const currentDate = `${date.getDate()} ${monthName[date.getMonth()]} ${date.getFullYear()}`;
     document.getElementById('topbar').innerText = `${warungName}${separator}${currentDate}`;
-});
+}
+
+window.addEventListener('load', loadTopbar);
 
 const menuNavigate = index => {
     document.getElementsByClassName('menu-item selected')[0].classList.remove('selected');
@@ -214,4 +217,5 @@ const editProfile = () => {
 ipcRenderer.on('confirmEditProfile', (_event, name, location) => {
     Storage.editProfile(name, location);
     HomeLoader.loadProfile();
+    loadTopbar();
 });
