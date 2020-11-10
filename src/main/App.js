@@ -7,6 +7,7 @@ let modalEditProfile;
 let modalRegisterItem, modalAddItem, modalSubtractItem, modalEditItem;
 let modalIncomeCashflow, modalSpendingCashflow, modalEditCashflow;
 let modalSetBalance;
+let modalAddNote;
 
 app.on('ready', () => {
     mainWindow = WindowManager.init('MAIN_WINDOW');
@@ -152,3 +153,8 @@ ipcMain.on('confirmEditProfile', (_event, name, location) => {
     mainWindow.webContents.send('confirmEditProfile', name, location);
     modalEditProfile.close();
 });
+
+ipcMain.on('addNote', () => {
+    modalAddNote = WindowManager.init('ADD_NOTE', mainWindow);
+    modalAddNote.load('../renderer/modal_add_note/add-note.html');
+})

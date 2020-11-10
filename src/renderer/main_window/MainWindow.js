@@ -225,3 +225,7 @@ ipcRenderer.on('confirmEditProfile', (_event, name, location) => {
     HomeLoader.loadProfile();
     loadTopbar();
 });
+
+const addNote = () => {
+    ipcRenderer.send('addNote', 0);
+}
