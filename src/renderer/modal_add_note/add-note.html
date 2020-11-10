@@ -1,1 +1,63 @@
-<p>Buat Catatan</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat Catatan</title>
+
+    <style>
+        body {
+            background: #121212;
+            text-align: center;
+        }
+
+        #title {
+            color: #FEFEFE;
+            font-family: 'Segoe UI';
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        #input-title {
+            width: 600px;
+            height: 32px;
+            margin-bottom: 15px;
+        }
+
+        #input-text {
+            width: 600px;
+            height: 175px;
+            margin-bottom: 15px;
+            resize: none;
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        button {
+            height: 36px;
+            background: #38A169;
+            color: #FEFEFE;
+            font-size: 14px;
+            border: none;
+            width: 175px;
+        }
+
+        #error {
+            color: red;
+            font-family: 'Segoe UI';
+        }
+    </style>
+
+</head>
+<body>
+    <div id="title">Buat Catatan</div>
+    <br>
+    <form>
+        <input type="text" id="input-title" maxlength="40" placeholder="Judul catatan">
+        <textarea name="input-text" id="input-text" cols="30" rows="10" placeholder="Catatan"></textarea> 
+        <br>
+        <button type="submit" onclick="event.preventDefault()">Buat Catatan</button>
+    </form>
+    <p id="error"></p>
+</body>
+</html>
