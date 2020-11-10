@@ -39,8 +39,18 @@ module.exports = {
     },
 
     loadAlert() {
-        const data = Storage.appData.items.filter(element => element.stok <= element.min);
+        let data = Storage.appData.items.filter(element => element.stok <= element.min);
         let table = document.getElementById('barang-alert');
+
+        data.sort((a, b) => {
+            if (a.stok < b.stok) {
+                return -1;
+            }
+            else if (a.stok > b.stok) {
+                return 1;
+            }
+            return 0;
+        })
 
         let DOMString = `
             <tr class="barang-alert-header barang-alert-row">
