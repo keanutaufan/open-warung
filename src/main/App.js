@@ -157,4 +157,9 @@ ipcMain.on('confirmEditProfile', (_event, name, location) => {
 ipcMain.on('addNote', () => {
     modalAddNote = WindowManager.init('ADD_NOTE', mainWindow);
     modalAddNote.load('../renderer/modal_add_note/add-note.html');
-})
+});
+
+ipcMain.on('confirmAddNote', (_event, title, text) => {
+    mainWindow.webContents.send('confirmAddNote', title, text);
+    modalAddNote.close();
+});

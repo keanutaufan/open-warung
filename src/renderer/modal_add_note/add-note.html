@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buat Catatan</title>
+    <script src="add-note.js"></script>
 
     <style>
         body {
@@ -56,7 +57,7 @@
         <input type="text" id="input-title" maxlength="40" placeholder="Judul catatan">
         <textarea name="input-text" id="input-text" cols="30" rows="10" placeholder="Catatan"></textarea> 
         <br>
-        <button type="submit" onclick="event.preventDefault()">Buat Catatan</button>
+        <button type="submit" onclick="event.preventDefault(); confirmAddNote()">Buat Catatan</button>
     </form>
     <p id="error"></p>
 </body>

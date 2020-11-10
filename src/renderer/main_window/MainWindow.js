@@ -4,6 +4,7 @@ const Storage = require('./Storage');
 const ItemTable = require('./ItemTable');
 const Cashflow = require('./arus_kas/Cashflow');
 const HomeLoader = require('./beranda/HomeLoader');
+const Notes = require('./catatan/Notes');
 
 
 Component.register('components/beranda.html', 'beranda');
@@ -229,3 +230,7 @@ ipcRenderer.on('confirmEditProfile', (_event, name, location) => {
 const addNote = () => {
     ipcRenderer.send('addNote', 0);
 }
+
+ipcRenderer.on('confirmAddNote', (_event, title, text) => {
+    Notes.add(title, text);
+});
