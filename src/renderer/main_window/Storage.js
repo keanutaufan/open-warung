@@ -4,6 +4,7 @@ module.exports = {
         account: JSON.parse(localStorage.getItem('account')) || {balance: 0},
         items: JSON.parse(localStorage.getItem('items')) || [],
         cashFlow: JSON.parse(localStorage.getItem('cashFlow')) || [],
+        notes: JSON.parse(localStorage.getItem('notes')) || [],
         userPreferences: JSON.parse(localStorage.getItem('userPreferences')) || []
     },
 
@@ -70,5 +71,15 @@ module.exports = {
         this.appData.account.name = name;
         this.appData.account.location = location;
         this.save('account');
+    },
+
+    addNote(note) {
+        this.appData.notes.push(note);
+        this.save('notes');
+    },
+
+    removeNote(index) {
+        this.appData.notes.splice(index, 1);
+        this.save('notes');
     }
 }
