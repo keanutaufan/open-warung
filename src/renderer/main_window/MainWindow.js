@@ -9,7 +9,7 @@ const HomeLoader = require('./beranda/HomeLoader');
 Component.register('components/beranda.html', 'beranda');
 Component.register('components/barang.html', 'barang');
 Component.register('components/arus-kas.html', 'arus-kas');
-Component.register('components/pengaturan.html', 'pengaturan');
+Component.register('components/catatan.html', 'catatan');
 Component.register('components/bantuan.html', 'bantuan');
 
 
