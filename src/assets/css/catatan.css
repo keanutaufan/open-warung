@@ -1,0 +1,27 @@
+catatan {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows: 80px auto;
+}
+
+#catatan-data {
+    display: grid;
+    grid-template-rows: 40px auto;
+    width: 100%;
+}
+
+#catatan-data-control {
+    width: 100%;
+}
+
+#add-catatan {
+    margin-right: 30px;
+    width: 150px;
+    height: 40px;
+    grid-column: -1;
+    background: #38A169;
+    color: #FEFEFE;
+    font-size: 14px;
+    border: none;
+}
