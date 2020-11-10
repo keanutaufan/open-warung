@@ -35,5 +35,35 @@ module.exports = {
         });
 
         table.innerHTML = DOMString;
+        this.loadAlert();
+    },
+
+    loadAlert() {
+        const data = Storage.appData.items.filter(element => element.stok <= element.min);
+        let table = document.getElementById('barang-alert');
+
+        let DOMString = `
+            <tr class="barang-alert-header barang-alert-row">
+                <th class="barang-alert-heading">Nama Barang</th>
+                <th class="barang-alert-heading">Stok</th>
+                <th class="barang-alert-heading">Min</th>
+                <th class="barang-alert-heading">Harga Beli</th>
+                <th class="barang-alert-heading">Harga Jual</th>
+            </tr>
+        `;
+
+        data.forEach(element => {
+            DOMString += `
+                <tr class="barang-alert-row">
+                    <td class="barang-alert-data">${element.barang}</td>
+                    <td class="barang-alert-data">${element.stok}</td>
+                    <td class="barang-alert-data">${element.min}</td>
+                    <td class="barang-alert-data">${new Intl.NumberFormat('id').format(element.beli)}</td>
+                    <td class="barang-alert-data">${new Intl.NumberFormat('id').format(element.jual)}</td>
+                </tr>
+            `;
+        });
+
+        table.innerHTML = DOMString;
     }
 }

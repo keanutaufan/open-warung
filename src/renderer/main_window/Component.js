@@ -14,6 +14,7 @@ module.exports = {
         .then(() => {
             if (tagname == 'beranda') {
                 HomeLoader.load();
+                ItemTable.loadAlert();
             }
             else if (tagname == 'barang') {
                 ItemTable.load();
