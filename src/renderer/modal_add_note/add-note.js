@@ -1,7 +1,7 @@
 const { ipcRenderer } = require('electron');
 
 window.addEventListener('load', () => {
-    document.getElementById('input-add-item').focus();
+    document.getElementById('input-title').focus();
 });
 
 const confirmAddNote = () => {
