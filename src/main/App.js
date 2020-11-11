@@ -206,8 +206,30 @@ ipcMain.on('backupData', (_event, data) => {
 
         fs.writeFile(response.filePath, data, error => {
             if (error) {
-                dialog.showErrorBox('error', 'Gagal menyimpan file backup. Coba simpan file di direktori lain, seperti Dokumen atau Desktop.');
+                dialog.showErrorBox('Error', 'Gagal menyimpan file backup. Coba simpan file di direktori lain, seperti Dokumen atau Desktop');
             }
+        });
+    });
+});
+
+ipcMain.on('restoreData', () => {
+    dialog.showOpenDialog(mainWindow, {
+        title: 'Pilih File Backup',
+        filters: [
+            {name: 'Open Warung File', extensions: ['owr']}
+        ]
+    }).then(response => {
+        if (response.canceled) {
+            return;
+        }
+
+        fs.readFile(response.filePaths[0], 'utf-8', (error, data) => {
+            if (error) {
+                dialog.showErrorBox('Error', 'Tidak bisa membuka file backup. Pastikan file yang dipilih adalah file backup Open Warung yang tidak dimodifikasi');
+                return;
+            }
+
+            mainWindow.webContents.send('confirmRestoreData', data);
         });
     });
 });

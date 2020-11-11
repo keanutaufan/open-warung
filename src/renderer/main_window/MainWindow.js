@@ -284,3 +284,26 @@ const backupData = () => {
 
     ipcRenderer.send('backupData', JSON.stringify(data));
 }
+
+const restoreData = () => {
+    ipcRenderer.send('restoreData', 0);
+}
+
+ipcRenderer.on('confirmRestoreData', (_event, dataString) => {
+    let data;
+    try {
+        data = JSON.parse(dataString);
+    }
+    catch(error) {
+        alert('Gagal membaca data pada file. Pastikan file yang dipilih adalah file backup Open Warung yang tidak dimodifikasi!');
+        return;
+    }
+
+    const keyValidator = ['metadata', 'account', 'items', 'cashFlow', 'notes', 'userPreferences'];
+    if (keyValidator.every(key => Object.keys(data).includes(key))) {
+        console.log('ok');
+    }
+    else {
+        alert('Gagal membaca data pada file. Pastikan file yang dipilih adalah file backup Open Warung yang tidak dimodifikasi!');
+    }
+});
