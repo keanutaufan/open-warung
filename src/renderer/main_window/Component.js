@@ -1,6 +1,7 @@
 const ItemTable = require('./ItemTable');
 const Cashflow = require('./arus_kas/Cashflow');
 const HomeLoader = require('./beranda/HomeLoader');
+const Notes = require('./catatan/Notes');
 
 module.exports = {
     register(path, tagname) {
@@ -23,6 +24,9 @@ module.exports = {
                 Cashflow.loadBalance();
                 Cashflow.loadYearDropdown();
                 Cashflow.render(0, 0);
+            }
+            else if (tagname == 'catatan') {
+                Notes.render();
             }
         });
     }

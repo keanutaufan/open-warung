@@ -233,4 +233,5 @@ const addNote = () => {
 
 ipcRenderer.on('confirmAddNote', (_event, title, text) => {
     Notes.add(title, text);
+    Notes.render();
 });
