@@ -35,7 +35,10 @@ module.exports = {
         });
 
         table.innerHTML = DOMString;
-        this.loadAlert();
+
+        if (document.getElementById('barang-alert')) {
+            this.loadAlert();
+        }
     },
 
     loadAlert() {
