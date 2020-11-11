@@ -163,3 +163,17 @@ ipcMain.on('confirmAddNote', (_event, title, text) => {
     mainWindow.webContents.send('confirmAddNote', title, text);
     modalAddNote.close();
 });
+
+ipcMain.on('removeNote', (_event, index) => {
+    dialog.showMessageBox(mainWindow, {
+        type: 'warning',
+        title: 'Konfirmasi Hapus Catatan',
+        message: `Yakin akan menghapus catatan ini?`,
+        detail: `Anda akan menghapus catatan dari sistem. Ketika sudah dihapus, catatan tidak dapat dikembalikan.`,
+        buttons: ['Batal', 'Hapus']
+    }).then(result => {
+        if (result.response === 1) {
+            mainWindow.webContents.send('confirmRemoveNote', index);
+        }
+    });
+});

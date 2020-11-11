@@ -235,3 +235,12 @@ ipcRenderer.on('confirmAddNote', (_event, title, text) => {
     Notes.add(title, text);
     Notes.render();
 });
+
+const removeNote = index => {
+    ipcRenderer.send('removeNote', index);
+}
+
+ipcRenderer.on('confirmRemoveNote', (_event, index) => {
+    Notes.remove(index);
+    Notes.render();
+});
