@@ -7,7 +7,7 @@ let modalEditProfile;
 let modalRegisterItem, modalAddItem, modalSubtractItem, modalEditItem;
 let modalIncomeCashflow, modalSpendingCashflow, modalEditCashflow;
 let modalSetBalance;
-let modalAddNote;
+let modalAddNote, modalEditNote;
 
 app.on('ready', () => {
     mainWindow = WindowManager.init('MAIN_WINDOW');
@@ -175,5 +175,13 @@ ipcMain.on('removeNote', (_event, index) => {
         if (result.response === 1) {
             mainWindow.webContents.send('confirmRemoveNote', index);
         }
+    });
+});
+
+ipcMain.on('editNote', (_event, index) => {
+    modalEditNote = WindowManager.init('EDIT_NOTE', mainWindow);
+    modalEditNote.load('../renderer/modal_edit_note/edit-note.html');
+    modalEditNote.webContents.once('did-finish-load', () => {
+        modalEditNote.webContents.send('passIndex', index);
     });
 });

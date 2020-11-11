@@ -46,6 +46,7 @@ const generateHTML = (data, index) => {
                     ${data.time.hour}:${data.time.minute}
                 </div>
                 <div class="card-button-container">
+                    <button class="card-delete-pemasukan" onclick="editNote(${index})">Edit</button>
                     <button class="card-delete-pengeluaran" onclick="removeNote(${index})">Hapus</button>
                 </div>
             </div>

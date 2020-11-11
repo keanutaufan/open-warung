@@ -180,6 +180,22 @@ module.exports = {
 				win.windowType = 'modal';
 				win.parent = parent;
 				break;
+
+			case 'EDIT_NOTE':
+				win = new BrowserWindow({
+					width: 700, height: 450,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Edit Catatan',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+	
+				win.windowType = 'modal';
+				win.parent = parent;
+				break;
 			
 
 			default:
