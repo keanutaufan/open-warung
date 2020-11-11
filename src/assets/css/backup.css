@@ -1,0 +1,39 @@
+backup {
+    display: grid;
+    grid-template-rows: 80px auto;
+}
+
+#backup-header {
+    text-align: center;
+}
+
+#backup-help {
+    width: 95%;
+    margin-left: 30px;
+}
+
+#backup-help > p {
+    font-weight: lighter;
+}
+
+#backup-control {
+    text-align: center;
+}
+
+#btn-backup {
+    height: 64px;
+    width: 300px;
+    border: none;
+    background: #38A169;
+    color: white;
+    font-size: 18px;
+}
+
+#btn-restore {
+    height: 64px;
+    width: 300px;
+    border: none;
+    background: #d9534f;
+    color: white;
+    font-size: 18px;
+}
