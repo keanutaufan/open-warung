@@ -81,5 +81,11 @@ module.exports = {
     removeNote(index) {
         this.appData.notes.splice(index, 1);
         this.save('notes');
+    },
+
+    editNote(index, title, text) {
+        this.appData.notes[index].title = title;
+        this.appData.notes[index].text = text;
+        this.save('notes');
     }
 }

@@ -246,5 +246,12 @@ ipcRenderer.on('confirmRemoveNote', (_event, index) => {
 });
 
 const editNote = index => {
-    ipcRenderer.send('editNote', index);
+    const currentTitle = Storage.appData.notes[index].title;
+    const currentText = Storage.appData.notes[index].text;
+    ipcRenderer.send('editNote', index, currentTitle, currentText);
 }
+
+ipcRenderer.on('confirmEditNote', (_event, index, title, text) => {
+    Storage.editNote(index, title, text);
+    Notes.render();
+})

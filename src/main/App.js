@@ -178,10 +178,15 @@ ipcMain.on('removeNote', (_event, index) => {
     });
 });
 
-ipcMain.on('editNote', (_event, index) => {
+ipcMain.on('editNote', (_event, index, title, text) => {
     modalEditNote = WindowManager.init('EDIT_NOTE', mainWindow);
     modalEditNote.load('../renderer/modal_edit_note/edit-note.html');
     modalEditNote.webContents.once('did-finish-load', () => {
-        modalEditNote.webContents.send('passIndex', index);
+        modalEditNote.webContents.send('passData', index, title, text);
     });
+});
+
+ipcMain.on('confirmEditNote', (_event, index, title, text) => {
+    mainWindow.webContents.send('confirmEditNote', index, title, text);
+    modalEditNote.close();
 });
