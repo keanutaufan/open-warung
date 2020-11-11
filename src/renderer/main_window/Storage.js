@@ -87,5 +87,21 @@ module.exports = {
         this.appData.notes[index].title = title;
         this.appData.notes[index].text = text;
         this.save('notes');
+    },
+
+    loadBackup(data) {
+        this.appData.metadata = data.metadata;
+        this.appData.account = data.account;
+        this.appData.items = data.items;
+        this.appData.cashFlow = data.cashFlow;
+        this.appData.notes = data.notes;
+        this.appData.userPreferences = data.userPreferences;
+
+        this.save('metadata');
+        this.save('account');
+        this.save('items');
+        this.save('cashFlow');
+        this.save('notes');
+        this.save('userPreferences');
     }
 }

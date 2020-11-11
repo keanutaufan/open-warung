@@ -242,3 +242,17 @@ ipcMain.on('showRestoreInfo', (_event, data) => {
         modalRestoreInfo.webContents.send('passData', data);
     });
 });
+
+ipcMain.on('proceedRestore', (_event, data) => {
+    mainWindow.webContents.send('proceedRestore', data);
+    modalRestoreInfo.close();
+});
+
+ipcMain.on('cancelRestore', () => {
+    modalRestoreInfo.close();
+});
+
+ipcMain.on('requestReload', () => {
+    app.relaunch();
+    app.exit();
+});

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informasi Data Backup</title>
+    <script src="restore-info.js"></script>
 
     <style>
         body {
@@ -68,6 +69,10 @@
             grid-column: -1;
         }
 
+        #waktu-value {
+            text-align: right;
+        }
+
         #control {
             text-align: center;
         }
@@ -111,17 +116,20 @@
             </div>
             <div class="info-container">
                 <div class="info-text">Jumlah Catatan</div>
-                <div id="barang-value" class="info-value">N/A</div>
+                <div id="catatan-value" class="info-value">N/A</div>
             </div>
             <div class="info-container">
-                <div class="info-text">Tanggal Backup</div>
-                <div id="tanggal-value" class="info-value">Loading...</div>
+                <div class="info-text">Waktu Backup</div>
+                <div id="waktu-value">
+                    <div id="tanggal-value" class="info-value">Loading...</div>
+                    <div id="jam-value">Loading...</div>
+                </div>
             </div>
         </div>
         <div id="control">
-            <button id="proceedRestore">Konfirmasi</button>
+            <button id="proceedRestore" onclick="proceedRestore()">Konfirmasi</button>
             &nbsp; &nbsp; &nbsp; 
-            <button id="cancelRestore">Batal</button>
+            <button id="cancelRestore" onclick="cancelRestore()">Batal</button>
         </div>
     </div>
 </body>

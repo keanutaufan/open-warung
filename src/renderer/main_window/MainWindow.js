@@ -307,3 +307,9 @@ ipcRenderer.on('confirmRestoreData', (_event, dataString) => {
         alert('Gagal membaca data pada file. Pastikan file yang dipilih adalah file backup Open Warung yang tidak dimodifikasi!');
     }
 });
+
+ipcRenderer.on('proceedRestore', (_event, stringData) => {
+    const data = JSON.parse(stringData);
+    Storage.loadBackup(data);
+    ipcRenderer.send('requestReload', 0);
+})
