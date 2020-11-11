@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Data Backup</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI';
+            background: #121212;
+            display: grid;
+            grid-template-rows: 50px auto 50px;
+            color: white;
+            margin: 0;
+        }
+
+        #header {
+            font-size: 28px;
+            background: rgba(0, 0, 0, 0.3);
+            width: 100%;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        #info {
+            margin-top: 20px;
+            display: grid;
+            grid-template-rows: 72px auto;
+        }
+
+        #profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #name {
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        #location {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        #additional-info {
+            display: grid;
+            row-gap: 10px;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        .info-container {
+            display: grid;
+            width: 90%;
+            grid-template-columns: 1fr 2fr;
+            margin-right: 20px;
+            margin-left: 20px;
+            font-size: larger;
+        }
+
+        .info-text {
+            grid-column: 1;
+        }
+
+        .info-value {
+            grid-column: -1;
+        }
+
+        #control {
+            text-align: center;
+        }
+
+        #proceedRestore {
+            height: 48px;
+            width: 180px;
+            background-color: #38A169;
+            color: white;
+            border: none;
+            font-size: larger;
+        }
+
+        #cancelRestore {
+            height: 48px;
+            width: 180px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            font-size: larger;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="header">Informasi Data Backup</div>
+    <div id="info">
+        <div id="profile">
+            <div id="name">Nama Warung</div>
+            <div id="location">Loading...</div>
+        </div>
+        <div id="additional-info">
+            <div class="info-container">
+                <div class="info-text">Saldo</div>
+                <div id="saldo-value" class="info-value">Loading...</div>
+            </div>
+            <div class="info-container">
+                <div class="info-text">Jumlah Barang</div>
+                <div id="barang-value" class="info-value">N/A</div>
+            </div>
+            <div class="info-container">
+                <div class="info-text">Jumlah Catatan</div>
+                <div id="barang-value" class="info-value">N/A</div>
+            </div>
+            <div class="info-container">
+                <div class="info-text">Tanggal Backup</div>
+                <div id="tanggal-value" class="info-value">Loading...</div>
+            </div>
+        </div>
+        <div id="control">
+            <button id="proceedRestore">Konfirmasi</button>
+            &nbsp; &nbsp; &nbsp; 
+            <button id="cancelRestore">Batal</button>
+        </div>
+    </div>
+</body>
+</html>
