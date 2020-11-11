@@ -11,7 +11,7 @@ Component.register('components/beranda.html', 'beranda');
 Component.register('components/barang.html', 'barang');
 Component.register('components/arus-kas.html', 'arus-kas');
 Component.register('components/catatan.html', 'catatan');
-// Component.register('components/bantuan.html', 'bantuan');
+Component.register('components/backup.html', 'backup');
 
 
 
