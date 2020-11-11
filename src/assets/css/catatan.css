@@ -36,7 +36,9 @@ catatan {
 .notes-body {
     font-weight: lighter;
     padding: 15px;
+    padding-top: 0;
     color: white;
+    white-space: pre-line; 
 }
 
 .notes-footer {
