@@ -9,6 +9,7 @@ let modalRegisterItem, modalAddItem, modalSubtractItem, modalEditItem;
 let modalIncomeCashflow, modalSpendingCashflow, modalEditCashflow;
 let modalSetBalance;
 let modalAddNote, modalEditNote;
+let modalRestoreInfo;
 
 app.on('ready', () => {
     mainWindow = WindowManager.init('MAIN_WINDOW');
@@ -231,5 +232,13 @@ ipcMain.on('restoreData', () => {
 
             mainWindow.webContents.send('confirmRestoreData', data);
         });
+    });
+});
+
+ipcMain.on('showRestoreInfo', (_event, data) => {
+    modalRestoreInfo = WindowManager.init('RESTORE_INFO', mainWindow);
+    modalRestoreInfo.load('../renderer/modal_restore_info/restore-info.html');
+    modalRestoreInfo.webContents.once('did-finish-load', () => {
+        modalRestoreInfo.webContents.send('passData', data);
     });
 });

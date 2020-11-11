@@ -196,6 +196,22 @@ module.exports = {
 				win.windowType = 'modal';
 				win.parent = parent;
 				break;
+
+			case 'RESTORE_INFO':
+				win = new BrowserWindow({
+					width: 500, height: 550,
+					modal: true, parent: parent,
+					backgroundColor: '#121212', show: false,
+					minimizable: false, resizable: false,
+					title: 'Informasi Data Backup',
+					webPreferences: {
+						nodeIntegration: true
+					}
+				});
+	
+				win.windowType = 'modal';
+				win.parent = parent;
+				break;
 			
 
 			default:

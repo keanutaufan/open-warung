@@ -301,7 +301,7 @@ ipcRenderer.on('confirmRestoreData', (_event, dataString) => {
 
     const keyValidator = ['metadata', 'account', 'items', 'cashFlow', 'notes', 'userPreferences'];
     if (keyValidator.every(key => Object.keys(data).includes(key))) {
-        console.log('ok');
+        ipcRenderer.send('showRestoreInfo', JSON.stringify(data));
     }
     else {
         alert('Gagal membaca data pada file. Pastikan file yang dipilih adalah file backup Open Warung yang tidak dimodifikasi!');
