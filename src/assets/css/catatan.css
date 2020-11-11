@@ -25,3 +25,20 @@ catatan {
     font-size: 14px;
     border: none;
 }
+
+.notes-card {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    width: 95%;
+}
+
+.notes-body {
+    font-weight: lighter;
+    padding: 15px;
+    color: white;
+}
+
+.notes-footer {
+    font-weight: lighter;
+}
