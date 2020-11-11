@@ -47,6 +47,9 @@ body {
 
 #sidebar > #logo {
     background: #121212;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 15px;
 }
 
 #sidebar > #menu {
