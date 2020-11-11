@@ -5,6 +5,7 @@ const ItemTable = require('./ItemTable');
 const Cashflow = require('./arus_kas/Cashflow');
 const HomeLoader = require('./beranda/HomeLoader');
 const Notes = require('./catatan/Notes');
+const { store } = require('./arus_kas/Cashflow');
 
 
 Component.register('components/beranda.html', 'beranda');
@@ -254,4 +255,32 @@ const editNote = index => {
 ipcRenderer.on('confirmEditNote', (_event, index, title, text) => {
     Storage.editNote(index, title, text);
     Notes.render();
-})
+});
+
+const backupData = () => {
+    const data = {
+        metadata: Storage.appData.metadata,
+        account: Storage.appData.account,
+        items: Storage.appData.items,
+        cashFlow: Storage.appData.cashFlow,
+        notes: Storage.appData.notes,
+        userPreferences: Storage.appData.userPreferences
+    }
+
+    const currentTime = new Date();
+    const dayName = [
+        'Minggu', 'Senin', 'Selasa',
+        'Rabu', 'Kamis', 'Jumat', 'Sabtu'
+    ];
+
+    data.metadata.lastBackup = {
+        year: currentTime.getFullYear(),
+        month: currentTime.getMonth() + 1,
+        date: currentTime.getDate(),
+        day: dayName[currentTime.getDay()],
+        hour: currentTime.getHours(),
+        minute: currentTime.getMinutes()
+    }
+
+    ipcRenderer.send('backupData', JSON.stringify(data));
+}

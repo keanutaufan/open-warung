@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { app, dialog, ipcMain } = require('electron');
 const WindowManager = require('./WindowManager');
 
@@ -189,4 +190,24 @@ ipcMain.on('editNote', (_event, index, title, text) => {
 ipcMain.on('confirmEditNote', (_event, index, title, text) => {
     mainWindow.webContents.send('confirmEditNote', index, title, text);
     modalEditNote.close();
+});
+
+ipcMain.on('backupData', (_event, data) => {
+    dialog.showSaveDialog(mainWindow, {
+        title: 'Simpan File Backup',
+        message: 'Pilih direktori penyimpanan file backup',
+        filters: [
+            {name: 'Open Warung File', extensions: ['owr']}
+        ]
+    }).then(response => {
+        if (response.canceled) {
+            return;
+        }
+
+        fs.writeFile(response.filePath, data, error => {
+            if (error) {
+                dialog.showErrorBox('error', 'Gagal menyimpan file backup. Coba simpan file di direktori lain, seperti Dokumen atau Desktop.');
+            }
+        });
+    });
 });
