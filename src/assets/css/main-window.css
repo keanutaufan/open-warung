@@ -90,6 +90,12 @@ body {
     grid-column: 3;
 }
 
+#sidebar > #version {
+    text-align: center;
+    font-weight: lighter;
+    font-size: smaller;
+}
+
 #content {
     background: #1E1E1E;
     grid-column: 2 / -1;
