@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "Aplikasi manajemen stok untuk warung dan UMKM lainnya",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=src/assets/app-icon/mac/icon.icns --out=release-builds",
+    "package-win": "electron-packager . open-warung --overwrite --asar --platform=win32 --arch=ia32 --icon=src/assets/app-icon/win/icon.ico --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Open Warung\"",    
+    "package-linux": "electron-packager . open-warung --overwrite --asar --platform=linux --arch=x64 --icon=src/assets/app-icon/linux/150x150.png --out=release-builds"
   },
   "main": "src/main/App.js",
   "author": "Keanu Taufan",
   "license": "GPL-3.0",
   "devDependencies": {
-    "electron": "^10.1.2"
+    "electron": "^10.1.2",
+    "electron-packager": "^15.1.0"
   }
 }
