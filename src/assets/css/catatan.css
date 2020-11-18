@@ -37,6 +37,7 @@ catatan {
     padding-top: 0;
     color: white;
     white-space: pre-line; 
+    word-break: break-all;
 }
 
 .notes-footer {
