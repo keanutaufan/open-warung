@@ -1,7 +1,7 @@
 barang {
     display: grid;
     height: 100%;
-    grid-template-rows: 1fr 8fr;
+    grid-template-rows: 130px auto;
 }
 
 barang > #barang-header {
