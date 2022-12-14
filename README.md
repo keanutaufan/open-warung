@@ -34,10 +34,10 @@ aplikasi OpenWarung
 ![Arus Kas](https://i.imgur.com/TAn1Hux.png)
 
 ### Catatan
-![Catatan](https://i.imgur.com/8Z99Bx7.png)
+![Catatan](https://i.imgur.com/fOjwUsY.png)
 
 ### Backup Data
-![Backup Data](https://i.imgur.com/fOjwUsY.png)
+![Backup Data](https://i.imgur.com/8GQOpJO.png)
 
 
 ## Pemberitahuan
